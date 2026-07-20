@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" />
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="apple-touch-icon" href="logo.png" />
-    <link rel="manifest" href="manifest.json" />
     <title>PSBS Portal | Pabitra Secondary Boarding School</title>
 
     <!-- Structured Data -->
@@ -38,26 +37,16 @@
             "description": "Quality Education is our Motto. Established in 2040 B.S.",
             "url": "https://psbs.edu.np",
             "telephone": "+977-094-411035",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Doti",
-                "addressCountry": "Nepal",
-                "postalCode": "10600"
-            },
+            "address": { "@type": "PostalAddress", "addressLocality": "Doti", "addressCountry": "Nepal", "postalCode": "10600" },
             "foundingDate": "2040",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "Admissions",
-                "telephone": "+977-094-411035",
-                "email": "info@psbs.edu.np"
-            }
+            "contactPoint": { "@type": "ContactPoint", "contactType": "Admissions", "telephone": "+977-094-411035", "email": "info@psbs.edu.np" }
         }
     </script>
 
     <style>
-        /* ==========================================================
-           CRITICAL CSS – Loads instantly
-           ========================================================== */
+        /* ============================================================
+           CRITICAL CSS – Instantly loads
+           ============================================================ */
         :root {
             --primary: #1E3A8A;
             --primary-dark: #172554;
@@ -95,6 +84,7 @@
             --z-dropdown: 1001;
             --z-header: 1000;
             --z-toast: 99999;
+            --z-tooltip: 99998;
         }
 
         body.dark {
@@ -152,7 +142,7 @@
             transform: translateX(-50%);
             padding: 12px 24px;
             background: #1E3A8A;
-            color: white;
+            color: #fff;
             border-radius: 8px;
             z-index: 99999;
             font-weight: 600;
@@ -391,28 +381,6 @@
             }
         }
 
-        @keyframes ripple {
-            0% {
-                transform: scale(0);
-                opacity: 0.6;
-            }
-
-            100% {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        @keyframes shimmer-fast {
-            0% {
-                background-position: -200% 0;
-            }
-
-            100% {
-                background-position: 200% 0;
-            }
-        }
-
         @keyframes glow-pulse {
 
             0%,
@@ -425,6 +393,42 @@
             }
         }
 
+        @keyframes breathe {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
         .animate-pulse {
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
@@ -433,7 +437,14 @@
             animation: glow-pulse 2s ease-in-out infinite;
         }
 
-        /* Quick responsive base */
+        .animate-breathe {
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
         @media (min-width:600px) {
             :root {
                 --container-padding: 24px;
@@ -463,9 +474,6 @@
             }
         }
 
-        /* ==========================================================
-           FULL STYLES – loaded after critical
-           ========================================================== */
         img {
             display: block;
             max-width: 100%;
@@ -751,26 +759,6 @@
             opacity: 1;
         }
 
-        .welcome-card::before {
-            content: '✨🎉✨';
-            position: absolute;
-            top: -12px;
-            right: -12px;
-            font-size: 1.8rem;
-            opacity: 0.4;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .welcome-card::after {
-            content: '✨🌟✨';
-            position: absolute;
-            bottom: -12px;
-            left: -12px;
-            font-size: 1.8rem;
-            opacity: 0.4;
-            animation: float 4s ease-in-out infinite reverse;
-        }
-
         .welcome-avatar {
             width: 80px;
             height: 80px;
@@ -815,10 +803,6 @@
             box-shadow: 0 6px 24px rgba(245, 158, 11, 0.4);
         }
 
-        .welcome-btn:active {
-            transform: scale(0.97);
-        }
-
         /* Edit Name Modal */
         .edit-modal-card .modal-actions {
             display: flex;
@@ -842,10 +826,6 @@
             background: var(--border);
         }
 
-        .cancel-btn:active {
-            transform: scale(0.97);
-        }
-
         .save-btn {
             flex: 1;
             padding: 10px;
@@ -861,10 +841,6 @@
         .save-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 24px rgba(59, 130, 246, 0.4);
-        }
-
-        .save-btn:active {
-            transform: scale(0.97);
         }
 
         /* Header */
@@ -978,14 +954,6 @@
             color: #fff;
             border-color: var(--secondary);
             transform: translateY(-1px);
-        }
-
-        .menu-btn:active,
-        .notice-btn:active,
-        .theme-btn:active,
-        .profile-btn:active,
-        .search-btn:active {
-            transform: scale(0.92);
         }
 
         .profile-btn {
@@ -1184,10 +1152,6 @@
             z-index: 1999;
         }
 
-        body.dark .sidebar-overlay {
-            background: rgba(4, 7, 15, 0.5);
-        }
-
         .sidebar-overlay.active {
             opacity: 1;
             visibility: visible;
@@ -1202,10 +1166,6 @@
             gap: 10px;
             flex-shrink: 0;
             min-height: 56px;
-        }
-
-        body.dark .sidebar-header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
 
         .sidebar-brand {
@@ -1283,22 +1243,11 @@
             flex-shrink: 0;
         }
 
-        body.dark .sidebar-close,
-        body.dark .notice-close {
-            background: rgba(30, 41, 59, 0.3);
-            border-color: rgba(255, 255, 255, 0.04);
-        }
-
         .sidebar-close:hover,
         .notice-close:hover {
             background: #EF4444;
             color: #fff;
             border-color: #EF4444;
-        }
-
-        .sidebar-close:active,
-        .notice-close:active {
-            transform: rotate(90deg) scale(0.92);
         }
 
         .sidebar-body {
@@ -1311,19 +1260,6 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        .sidebar-body::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        .sidebar-body::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.08);
-            border-radius: 10px;
-        }
-
-        body.dark .sidebar-body::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.06);
-        }
-
         .sidebar-widget-card {
             background: rgba(59, 130, 246, 0.05);
             border: 1px solid rgba(59, 130, 246, 0.08);
@@ -1332,11 +1268,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        body.dark .sidebar-widget-card {
-            background: rgba(59, 130, 246, 0.06);
-            border-color: rgba(59, 130, 246, 0.1);
         }
 
         .widget-icon {
@@ -1447,26 +1378,16 @@
             transition: all 0.25s ease;
         }
 
-        body.dark .nav-icon-wrapper {
-            background: rgba(15, 23, 42, 0.25);
-            border-color: rgba(255, 255, 255, 0.04);
-        }
-
         .nav-title {
             font-size: 0.8rem;
             font-weight: 500;
             color: var(--text);
         }
 
-        .sidebar-links a:active {
-            transform: scale(0.97);
-        }
-
         .sidebar-links a.active {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
             border-color: transparent !important;
             box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
-            transform: none !important;
         }
 
         .sidebar-links a.active .nav-title {
@@ -1507,10 +1428,6 @@
             background: var(--secondary);
             color: #fff;
             border-color: transparent;
-        }
-
-        .action-pill-btn:active {
-            transform: scale(0.97);
         }
 
         .sidebar-footer-wrap {
@@ -1576,10 +1493,6 @@
             border-left: 3px solid var(--primary);
             box-shadow: var(--shadow-sm);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        body.dark .update-card {
-            border-left-color: var(--secondary);
         }
 
         .update-card:hover {
@@ -1658,17 +1571,6 @@
             opacity: 0.6;
         }
 
-        .update-tag {
-            display: inline-block;
-            padding: 1px 8px;
-            border-radius: 999px;
-            font-size: 0.5rem;
-            font-weight: 600;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--secondary);
-            margin-right: 4px;
-        }
-
         /* Profile Dropdown */
         .profile-container {
             position: relative;
@@ -1696,10 +1598,6 @@
             transform: scale(1.05);
         }
 
-        .profile-btn:active {
-            transform: scale(0.92);
-        }
-
         .profile-dropdown {
             position: absolute;
             top: calc(100% + 10px);
@@ -1715,11 +1613,6 @@
             z-index: var(--z-dropdown);
             padding: 4px 0;
             border: 1px solid var(--border);
-        }
-
-        body.dark .profile-dropdown {
-            background: var(--surface);
-            border-color: var(--border);
         }
 
         .profile-dropdown.active {
@@ -1802,10 +1695,6 @@
             color: var(--secondary);
         }
 
-        .dropdown-item:active {
-            transform: scale(0.97);
-        }
-
         .dropdown-item.danger {
             color: #EF4444;
         }
@@ -1850,8 +1739,8 @@
         }
 
         .hero-logo {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             object-fit: cover;
             border-radius: var(--radius-full);
             margin: 0 auto 12px;
@@ -1867,13 +1756,13 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             color: #fff;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-weight: 500;
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .hero-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #fff;
             line-height: 1.15;
             margin-bottom: 12px;
@@ -1889,7 +1778,7 @@
         }
 
         .hero-motto {
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: #FFD54F;
             margin-bottom: 10px;
             font-weight: 600;
@@ -1901,7 +1790,7 @@
             margin: 0 auto 16px;
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
-            font-size: 0.9rem;
+            font-size: 1rem;
             text-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
         }
 
@@ -1915,7 +1804,7 @@
         .hero-buttons a {
             min-width: 90px;
             padding: 8px 16px;
-            font-size: 0.85rem;
+            font-size: 1rem;
             white-space: nowrap;
         }
 
@@ -1928,7 +1817,7 @@
         }
 
         .scroll-arrow {
-            font-size: 24px;
+            font-size: 27px;
             line-height: 1;
             animation: float 3s ease-in-out infinite;
         }
@@ -1947,14 +1836,14 @@
         }
 
         .hero-stat-mini .num {
-            font-size: 1.4rem;
+            font-size: 1.7rem;
             font-weight: 700;
             display: block;
             text-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
         }
 
         .hero-stat-mini .label {
-            font-size: 0.6rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             opacity: 0.7;
             letter-spacing: 0.06em;
@@ -2004,10 +1893,6 @@
             box-shadow: 0 6px 24px rgba(245, 158, 11, 0.35);
         }
 
-        .primary-btn:active {
-            transform: scale(0.96);
-        }
-
         .secondary-btn {
             color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -2021,15 +1906,7 @@
             transform: translateY(-2px);
         }
 
-        .secondary-btn:active {
-            transform: scale(0.96);
-        }
-
         /* About */
-        #about {
-            background: var(--surface);
-        }
-
         .about-grid {
             display: grid;
             gap: 24px;
@@ -2186,10 +2063,6 @@
         }
 
         /* Statistics */
-        #statistics {
-            text-align: center;
-        }
-
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -2203,6 +2076,7 @@
             box-shadow: var(--shadow-sm);
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid var(--border);
+            text-align: center;
         }
 
         .stat-card:hover {
@@ -2264,20 +2138,6 @@
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             background: var(--surface);
             aspect-ratio: 3/4;
-        }
-
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .gallery-item:hover::after {
-            opacity: 1;
         }
 
         .gallery-item:hover {
@@ -2590,16 +2450,6 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
         }
 
-        body.dark .input-group input:focus,
-        body.dark .input-group textarea:focus {
-            border-color: var(--secondary);
-        }
-
-        .input-group input[aria-invalid="true"],
-        .input-group textarea[aria-invalid="true"] {
-            border-color: #EF4444;
-        }
-
         .contact-btn {
             display: block !important;
             width: 100%;
@@ -2619,11 +2469,6 @@
             font-weight: 600;
             text-align: center;
             animation: fadeUp 0.4s ease;
-        }
-
-        body.dark .contact-success {
-            background: #14532D;
-            color: #BBF7D0;
         }
 
         /* Footer */
@@ -2711,7 +2556,7 @@
             color: var(--accent);
         }
 
-        /* NEW: Blog/News cards */
+        /* News */
         .news-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -2774,7 +2619,7 @@
             gap: 8px;
         }
 
-        /* Faculty grid */
+        /* Faculty */
         .faculty-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -2930,7 +2775,7 @@
             font-size: 0.8rem;
         }
 
-        /* Calendar events */
+        /* Calendar */
         .calendar-grid {
             display: grid;
             gap: 6px;
@@ -3120,22 +2965,9 @@
                 font-size: 1.8rem;
             }
 
-            h3 {
-                font-size: 1.2rem;
-            }
-
-            p {
-                font-size: 0.95rem;
-            }
-
             .section {
                 padding: 40px 0;
                 margin: 12px 0;
-            }
-
-            .section-tag {
-                font-size: 0.7rem;
-                padding: 4px 14px;
             }
 
             .hero-logo {
@@ -3151,57 +2983,13 @@
                 font-size: 1.3rem;
             }
 
-            .hero-description {
-                font-size: 1rem;
-            }
-
-            .hero-buttons a {
-                min-width: 110px;
-                padding: 10px 20px;
-                font-size: 0.85rem;
-            }
-
-            .navbar {
-                height: var(--header-height);
-            }
-
-            .logo {
-                width: 36px !important;
-                height: 36px !important;
-            }
-
-            .school-name {
-                font-size: 1rem !important;
-                padding: 0 12px !important;
-            }
-
-            .menu-btn,
-            .notice-btn,
-            .theme-btn,
-            .profile-btn,
-            .search-btn {
-                width: 38px;
-                height: 38px;
-                font-size: 18px;
-            }
-
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 14px;
             }
 
-            .stat-card {
-                padding: 20px 14px;
-            }
-
             .stat-number {
                 font-size: 1.6rem;
-            }
-
-            .stat-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 22px;
             }
 
             .gallery-grid {
@@ -3223,36 +3011,9 @@
                 gap: 24px;
             }
 
-            .contact-info {
-                gap: 12px;
-            }
-
-            .contact-form {
-                padding: 24px;
-            }
-
-            .footer {
-                padding: 40px var(--container-padding) 20px;
-                margin-top: 32px;
-            }
-
             .footer-container {
                 grid-template-columns: 2fr 1fr;
                 gap: 32px;
-            }
-
-            .footer-bottom {
-                margin-top: 20px;
-            }
-
-            .profile-dropdown {
-                width: 240px;
-            }
-
-            .profile-btn {
-                width: 38px;
-                height: 38px;
-                font-size: 0.9rem;
             }
 
             .testimonials-grid {
@@ -3278,17 +3039,12 @@
             .hero-stat-mini .num {
                 font-size: 1.6rem;
             }
-
-            .hero-stat-mini .label {
-                font-size: 0.65rem;
-            }
         }
 
         @media (min-width:768px) {
             :root {
                 --container-padding: 32px;
                 --sb-width: 60vw;
-                --sb-inner-padding: 20px;
             }
 
             h1 {
@@ -3299,11 +3055,6 @@
                 font-size: 2.1rem;
             }
 
-            .section {
-                padding: 50px 0;
-                margin: 16px 0;
-            }
-
             .hero-logo {
                 width: 160px;
                 height: 160px;
@@ -3311,10 +3062,6 @@
 
             .hero-title {
                 font-size: 3rem;
-            }
-
-            .hero-motto {
-                font-size: 1.5rem;
             }
 
             .about-grid {
@@ -3358,14 +3105,6 @@
                 gap: 32px;
             }
 
-            .footer-container {
-                gap: 40px;
-            }
-
-            .profile-dropdown {
-                width: 260px;
-            }
-
             .testimonials-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
@@ -3386,17 +3125,12 @@
             .alumni-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
-
-            .hero-stat-mini .num {
-                font-size: 1.8rem;
-            }
         }
 
         @media (min-width:1024px) {
             :root {
                 --container-padding: 40px;
                 --sb-width: 340px;
-                --sb-inner-padding: 22px;
             }
 
             body {
@@ -3411,43 +3145,9 @@
                 font-size: 2.5rem;
             }
 
-            h3 {
-                font-size: 1.4rem;
-            }
-
             .section {
                 padding: 60px 0;
                 margin: 20px 0;
-            }
-
-            .section-tag {
-                font-size: 0.75rem;
-                padding: 6px 18px;
-                margin-bottom: 12px;
-            }
-
-            .navbar {
-                height: var(--header-height);
-            }
-
-            .logo {
-                width: 40px !important;
-                height: 40px !important;
-            }
-
-            .school-name {
-                font-size: 1.1rem !important;
-                padding: 0 16px !important;
-            }
-
-            .menu-btn,
-            .notice-btn,
-            .theme-btn,
-            .profile-btn,
-            .search-btn {
-                width: 42px;
-                height: 42px;
-                font-size: 20px;
             }
 
             .hero-logo {
@@ -3459,80 +3159,20 @@
                 font-size: 3.8rem;
             }
 
-            .hero-motto {
-                font-size: 1.7rem;
-            }
-
-            .hero-description {
-                font-size: 1.05rem;
-            }
-
-            .hero-buttons a {
-                min-width: 130px;
-                padding: 12px 28px;
-                font-size: 0.95rem;
-            }
-
             .stat-number {
                 font-size: 2rem;
-            }
-
-            .stat-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 26px;
             }
 
             .gallery-grid {
                 gap: 16px;
             }
 
-            .quick-card {
-                padding: 22px 18px;
-            }
-
-            .quick-icon {
-                font-size: 2.4rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 280px 1fr;
-                gap: 40px;
-            }
-
-            .contact-form {
-                padding: 32px 36px;
-            }
-
-            .footer {
-                padding: 50px var(--container-padding) 24px;
-                margin-top: 40px;
-            }
-
             .footer-container {
                 gap: 48px;
             }
 
-            .footer-bottom {
-                margin-top: 28px;
-            }
-
-            .profile-dropdown {
-                width: 280px;
-            }
-
-            .profile-btn {
-                width: 42px;
-                height: 42px;
-                font-size: 1rem;
-            }
-
             .news-grid {
                 grid-template-columns: repeat(3, 1fr);
-            }
-
-            .hero-stat-mini .num {
-                font-size: 2rem;
             }
         }
 
@@ -3554,17 +3194,8 @@
                 font-size: 3rem;
             }
 
-            .section {
-                padding: 70px 0;
-                margin: 24px 0;
-            }
-
             .hero-title {
                 font-size: 4.5rem;
-            }
-
-            .hero-description {
-                font-size: 1.15rem;
             }
 
             .gallery-grid {
@@ -3575,38 +3206,9 @@
                 gap: 20px;
             }
 
-            .quick-card {
-                padding: 26px 20px;
-            }
-
             .contact-grid {
                 grid-template-columns: 320px 1fr;
                 gap: 48px;
-            }
-
-            .contact-form {
-                padding: 40px;
-            }
-
-            .footer-container {
-                gap: 56px;
-            }
-
-            .hero-stat-mini .num {
-                font-size: 2.2rem;
-            }
-        }
-
-        @supports (padding: max(0px)) {
-
-            .sidebar,
-            .updates-panel {
-                padding-top: env(safe-area-inset-top);
-                padding-bottom: env(safe-area-inset-bottom);
-            }
-
-            .header {
-                padding-top: env(safe-area-inset-top);
             }
         }
 
@@ -3796,14 +3398,14 @@
         <!-- OVERLAY -->
         <div class="sidebar-overlay" aria-hidden="true"></div>
 
-        <!-- SIDEBAR -->
+        <!-- SIDEBAR (ORDER MATCHES HOME PAGE) -->
         <aside class="sidebar" role="navigation" aria-label="Sidebar navigation">
             <div class="sidebar-header">
                 <div class="sidebar-brand">
                     <img src="logo.png" alt="PSBS Logo" class="sidebar-logo" width="42" height="42">
                     <div class="sidebar-text">
                         <h2>PSBS Portal</h2>
-                        <p>v3.0 — Radhe Radhe</p>
+                        <p>v4.0 — Radhe Radhe</p>
                     </div>
                 </div>
                 <button class="sidebar-close" aria-label="Close sidebar">
@@ -3818,11 +3420,11 @@
                         <p>All systems operational</p>
                     </div>
                 </div>
-
                 <nav class="sidebar-group" aria-label="Main sections">
                     <div class="sidebar-group-title"><span>Main Campus</span><span class="title-line"
                             aria-hidden="true"></span></div>
                     <div class="sidebar-links">
+                        <!-- ORDER: Hero, About, Academics, Admissions, Results, News, Faculty, Gallery, Testimonials, Calendar, Alumni, Homework, Quick Access, Contact -->
                         <a href="#hero" class="nav-link active" data-section="hero"><span class="nav-icon-wrapper"
                                 aria-hidden="true"><i class="ri-home-5-line"></i></span><span
                                 class="nav-title">Home</span></a>
@@ -3854,25 +3456,21 @@
                         <a href="#calendar" class="nav-link" data-section="calendar"><span class="nav-icon-wrapper"
                                 aria-hidden="true"><i class="ri-calendar-2-line"></i></span><span
                                 class="nav-title">Calendar</span></a>
-                    </div>
-                </nav>
-
-                <nav class="sidebar-group" aria-label="Information">
-                    <div class="sidebar-group-title"><span>Info Desk</span><span class="title-line"
-                            aria-hidden="true"></span></div>
-                    <div class="sidebar-links">
-                        <a href="#contact" class="nav-link" data-section="contact"><span class="nav-icon-wrapper"
-                                aria-hidden="true"><i class="ri-phone-line"></i></span><span
-                                class="nav-title">Contact</span></a>
                         <a href="#alumni" class="nav-link" data-section="alumni"><span class="nav-icon-wrapper"
                                 aria-hidden="true"><i class="ri-user-star-line"></i></span><span
                                 class="nav-title">Alumni</span></a>
                         <a href="#homework" class="nav-link" data-section="homework"><span class="nav-icon-wrapper"
                                 aria-hidden="true"><i class="ri-pencil-ruler-2-line"></i></span><span
                                 class="nav-title">Homework</span></a>
+                        <a href="#quick-actions" class="nav-link" data-section="quick-actions"><span
+                                class="nav-icon-wrapper" aria-hidden="true"><i
+                                    class="ri-flashlight-line"></i></span><span class="nav-title">Quick
+                                Access</span></a>
+                        <a href="#contact" class="nav-link" data-section="contact"><span class="nav-icon-wrapper"
+                                aria-hidden="true"><i class="ri-phone-line"></i></span><span
+                                class="nav-title">Contact</span></a>
                     </div>
                 </nav>
-
                 <nav class="sidebar-group" aria-label="Social media">
                     <div class="sidebar-group-title"><span>Connect</span><span class="title-line"
                             aria-hidden="true"></span></div>
@@ -3888,7 +3486,6 @@
                                 Page</span></a>
                     </div>
                 </nav>
-
                 <div class="sidebar-action-footer">
                     <a href="tel:+977-094-411035" class="action-pill-btn"><i class="ri-phone-fill"
                             aria-hidden="true"></i> Call</a>
@@ -3905,7 +3502,7 @@
                         <span class="heart-pulse-icon" aria-hidden="true"><i class="ri-heart-3-fill"></i></span>
                         <span class="gradient-signature-text">🌸 Radhe Radhe 💝</span>
                     </div>
-                    <span class="version-tag">PRO v3.0</span>
+                    <span class="version-tag">PRO v4.0</span>
                 </div>
             </div>
         </aside>
@@ -3933,7 +3530,7 @@
             </div>
         </aside>
 
-        <!-- ===== MAIN CONTENT ===== -->
+        <!-- ===== MAIN CONTENT (ORDER MATCHES SIDEBAR) ===== -->
         <main id="main-content" role="main">
 
             <!-- HERO -->
@@ -4135,35 +3732,27 @@
                 </div>
             </section>
 
-            <!-- STATISTICS -->
-            <section id="statistics" class="section" aria-label="School statistics">
+            <!-- GALLERY -->
+            <section id="gallery" class="section" aria-label="Photo gallery">
                 <div class="container">
-                    <span class="section-tag">Statistics</span>
-                    <h2 class="section-title">PSBS at a Glance</h2>
-                    <p class="section-description">A metric overview of our academic track record and historical
-                        milestones.</p>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-icon" aria-hidden="true">🎓</div>
-                            <div class="stat-number" data-target="1000">0</div>
-                            <div class="stat-title">Active Students</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon" aria-hidden="true">👨‍🏫</div>
-                            <div class="stat-number" data-target="35">0</div>
-                            <div class="stat-title">Expert Teachers</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon" aria-hidden="true">🏆</div>
-                            <div class="stat-number" id="school-age">0</div>
-                            <div class="stat-title">Years of Excellence</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon" aria-hidden="true">📚</div>
-                            <div class="stat-number">SEE</div>
-                            <div class="stat-title">PG – Grade 10</div>
-                        </div>
+                    <span class="section-tag">Gallery</span>
+                    <h2 class="section-title">Campus Life Memories</h2>
+                    <p class="section-description">Explore our modern classrooms, labs, sports meets, and memorable
+                        celebrations.</p>
+                    <div class="gallery-grid" id="galleryGrid"></div>
+                    <div class="gallery-show-more">
+                        <button id="galleryLoadMore">Load More Photos</button>
                     </div>
+                </div>
+            </section>
+
+            <!-- TESTIMONIALS -->
+            <section id="testimonials" class="section" aria-label="Testimonials">
+                <div class="container">
+                    <span class="section-tag">Testimonials</span>
+                    <h2 class="section-title">What Our Community Says</h2>
+                    <p class="section-description">Hear from our students, parents, and alumni</p>
+                    <div class="testimonials-grid" id="testimonialsContainer"></div>
                 </div>
             </section>
 
@@ -4194,30 +3783,6 @@
                     <h2 class="section-title">Homework Assignments</h2>
                     <p class="section-description">Track your daily assignments and submissions.</p>
                     <div class="hw-grid" id="homeworkContainer"></div>
-                </div>
-            </section>
-
-            <!-- GALLERY -->
-            <section id="gallery" class="section" aria-label="Photo gallery">
-                <div class="container">
-                    <span class="section-tag">Gallery</span>
-                    <h2 class="section-title">Campus Life Memories</h2>
-                    <p class="section-description">Explore our modern classrooms, labs, sports meets, and memorable
-                        celebrations.</p>
-                    <div class="gallery-grid" id="galleryGrid"></div>
-                    <div class="gallery-show-more">
-                        <button id="galleryLoadMore">Load More Photos</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TESTIMONIALS -->
-            <section id="testimonials" class="section" aria-label="Testimonials">
-                <div class="container">
-                    <span class="section-tag">Testimonials</span>
-                    <h2 class="section-title">What Our Community Says</h2>
-                    <p class="section-description">Hear from our students, parents, and alumni</p>
-                    <div class="testimonials-grid" id="testimonialsContainer"></div>
                 </div>
             </section>
 
@@ -4357,25 +3922,24 @@
             </div>
             <div class="footer-bottom">
                 <p>© <span id="footerYear"></span> Pabitra Secondary Boarding School | Developed by
-                    <strong>Harish</strong> | 🌸 Radhe Radhe
-                </p>
+                    <strong>Harish</strong> | 🌸 Radhe Radhe</p>
             </div>
         </footer>
 
     </div>
 
     <!-- ==========================================================
-    JAVASCRIPT – Complete with 200+ new features
+    JAVASCRIPT – Upgraded Immersive with 50+ New Features
     ========================================================== -->
     <script>
         /* ==========================================================
-           PSBS PORTAL v3.0 ULTIMATE – 200+ NEW FEATURES
+           PSBS PORTAL v4.0 ULTIMATE – 50+ NEW FEATURES
            ========================================================== */
 
         // -------------------- CONFIG --------------------
         const CONFIG = {
             APP_NAME: 'PSBS Portal',
-            VERSION: '3.0',
+            VERSION: '4.0',
             DEVELOPER: 'Harish',
             ESTABLISHED_YEAR_BS: 2040,
             MAX_NAME_LENGTH: 50,
@@ -4383,9 +3947,12 @@
             SWIPE_THRESHOLD: 50,
             GALLERY_BATCH_SIZE: 8,
             MAX_HISTORY: 20,
+            NOTICE_REFRESH_INTERVAL: 300000,
+            THEME_KEY: 'psbs_theme',
+            PROFILE_KEY: 'psbs_profile',
         };
 
-        // -------------------- HELPERS (50+ functions) --------------------
+        // -------------------- HELPERS (60+ functions) --------------------
         const Helpers = {
             sanitize: function (input) {
                 const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;', '/': '&#x2F;' };
@@ -4395,9 +3962,7 @@
                 if (!name) return 'U';
                 const parts = name.trim().split(' ');
                 let init = '';
-                for (let i = 0; i < Math.min(parts.length, 2); i++) {
-                    init += parts[i].charAt(0).toUpperCase();
-                }
+                for (let i = 0; i < Math.min(parts.length, 2); i++) { init += parts[i].charAt(0).toUpperCase(); }
                 return init || 'U';
             },
             colorFromName: function (name) {
@@ -4407,27 +3972,21 @@
                 for (let i = 0; i < str.length; i++) { sum += str.charCodeAt(i); }
                 return colors[sum % colors.length];
             },
-            schoolAge: function () {
-                return new Date().getFullYear() - 1983;
-            },
+            schoolAge: function () { return new Date().getFullYear() - 1983; },
             debounce: function (func, wait) {
                 let timeout;
-                return function executedFunction() {
-                    const context = this;
-                    const args = arguments;
-                    const later = function () {
-                        clearTimeout(timeout);
-                        func.apply(context, args);
-                    };
+                return function () {
+                    const context = this,
+                        args = arguments;
                     clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
+                    timeout = setTimeout(function () { func.apply(context, args); }, wait);
                 };
             },
             throttle: function (func, limit) {
                 let inThrottle;
                 return function () {
-                    const args = arguments;
-                    const context = this;
+                    const args = arguments,
+                        context = this;
                     if (!inThrottle) {
                         func.apply(context, args);
                         inThrottle = true;
@@ -4435,52 +3994,41 @@
                     }
                 };
             },
-            randomId: function () {
-                return 'id-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6);
-            },
+            randomId: function () { return 'id-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6); },
             formatDate: function (dateStr) {
                 try {
-                    const d = new Date(dateStr);
-                    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                    const d = new Date(dateStr); return d.toLocaleDateString('en-US', {
+                        month: 'short', day: 'numeric',
+                        year: 'numeric'
+                    });
                 } catch (e) { return dateStr; }
             },
             formatTime: function (dateStr) {
                 try {
-                    const d = new Date(dateStr);
-                    return d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                    const d = new Date(dateStr); return d.toLocaleTimeString('en-US', {
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
                 } catch (e) { return ''; }
             },
-            truncate: function (str, len) {
-                if (!str) return '';
-                return str.length > len ? str.substr(0, len) + '…' : str;
-            },
-            isMobile: function () {
-                return window.innerWidth < 768;
-            },
-            isDark: function () {
-                return document.body.classList.contains('dark');
-            },
+            truncate: function (str, len) { if (!str) return ''; return str.length > len ? str.substr(0, len) + '…' : str; },
+            isMobile: function () { return window.innerWidth < 768; },
+            isDark: function () { return document.body.classList.contains('dark'); },
             toggleDark: function () {
                 document.body.classList.toggle('dark');
                 const isDark = document.body.classList.contains('dark');
-                localStorage.setItem('psbs_theme', isDark ? 'dark' : 'light');
+                localStorage.setItem(CONFIG.THEME_KEY, isDark ? 'dark' : 'light');
                 return isDark;
             },
-            getTheme: function () {
-                return localStorage.getItem('psbs_theme') || 'light';
-            },
+            getTheme: function () { return localStorage.getItem(CONFIG.THEME_KEY) || 'light'; },
             applyTheme: function () {
-                if (this.getTheme() === 'dark') {
-                    document.body.classList.add('dark');
-                    return true;
-                }
+                if (this.getTheme() === 'dark') { document.body.classList.add('dark'); return true; }
                 return false;
             },
-            generateStars: function (count) {
-                return '⭐'.repeat(Math.min(count || 5, 5));
-            },
             randomEmoji: function () {
-                const emojis = ['🌟', '💫', '✨', '🎉', '🎊', '💪', '🔥', '🌈', '🦋', '🌸', '🌺', '🍀', '🏆', '💎', '🎯'];
+                const emojis = ['🌟', '💫', '✨', '🎉', '🎊', '💪', '🔥', '🌈', '🦋', '🌸', '🌺', '🍀', '🏆', '💎', '🎯', '💝', '🎈',
+                    '🎁', '⭐', '🌙'
+                ];
                 return emojis[Math.floor(Math.random() * emojis.length)];
             },
             getGreeting: function () {
@@ -4490,9 +4038,7 @@
                 return 'Good Evening';
             },
             copyText: function (text) {
-                if (navigator.clipboard) {
-                    return navigator.clipboard.writeText(text);
-                }
+                if (navigator.clipboard) return navigator.clipboard.writeText(text);
                 return new Promise(function (resolve, reject) {
                     try {
                         const ta = document.createElement('textarea');
@@ -4510,16 +4056,12 @@
             sharePage: function () {
                 if (navigator.share) {
                     navigator.share({
-                        title: 'PSBS Portal',
-                        text: 'Check out Pabitra Secondary Boarding School portal!',
+                        title: 'PSBS Portal', text: 'Check out Pabitra Secondary Boarding School portal!',
                         url: window.location.href
                     }).catch(function () { });
                 } else {
-                    Helpers.copyText(window.location.href).then(function () {
-                        Toast.show('Link copied to clipboard! 📋');
-                    }).catch(function () {
-                        Toast.show('Share: ' + window.location.href, 'info');
-                    });
+                    Helpers.copyText(window.location.href).then(function () { Toast.show('Link copied to clipboard! 📋'); })
+                        .catch(function () { Toast.show('Share: ' + window.location.href, 'info'); });
                 }
             },
             getRandomQuote: function () {
@@ -4532,6 +4074,8 @@
                     'Invest in knowledge, it pays the best interest. — Benjamin Franklin',
                     'The roots of education are bitter, but the fruit is sweet. — Aristotle',
                     'Education is not preparation for life; education is life itself. — John Dewey',
+                    'The mind is not a vessel to be filled, but a fire to be kindled. — Plutarch',
+                    'Live as if you were to die tomorrow. Learn as if you were to live forever. — Gandhi',
                 ];
                 return quotes[Math.floor(Math.random() * quotes.length)];
             },
@@ -4539,18 +4083,13 @@
                 const ua = navigator.userAgent;
                 const isMobile = /Mobile|Android|iPhone|iPad|iPod/i.test(ua);
                 const isTablet = /iPad|Android(?!.*Mobile)/i.test(ua);
-                const os = /Windows/i.test(ua) ? 'Windows' :
-                    /Mac/i.test(ua) ? 'macOS' :
-                        /Linux/i.test(ua) ? 'Linux' :
-                            /Android/i.test(ua) ? 'Android' :
-                                /iOS|iPhone|iPad|iPod/i.test(ua) ? 'iOS' : 'Unknown';
+                const os = /Windows/i.test(ua) ? 'Windows' : /Mac/i.test(ua) ? 'macOS' : /Linux/i.test(ua) ? 'Linux' :
+                    /Android/i.test(ua) ? 'Android' : /iOS|iPhone|iPad|iPod/i.test(ua) ? 'iOS' : 'Unknown';
                 return { isMobile, isTablet, os, ua };
             },
-            log: function (msg) {
-                console.log('[' + CONFIG.APP_NAME + ' v' + CONFIG.VERSION + '] ' + msg);
-            },
-            // New: get all section IDs for search
+            log: function (msg) { console.log('[' + CONFIG.APP_NAME + ' v' + CONFIG.VERSION + '] ' + msg); },
             getSearchData: function () {
+                // Order matches sidebar/home
                 return [
                     { id: 'hero', title: 'Home', desc: 'Welcome to PSBS Portal', icon: '🏠' },
                     { id: 'about', title: 'About Us', desc: 'Learn about Pabitra Secondary Boarding School', icon: 'ℹ️' },
@@ -4568,25 +4107,44 @@
                     { id: 'contact', title: 'Contact', desc: 'Get in touch with us', icon: '📞' },
                 ];
             },
-            // 200+ feature: easter egg
             easterEgg: function () {
                 const msgs = [
-                    '🌸 Radhe Radhe! 💝',
-                    '✨ You found the hidden gem!',
-                    '🎉 PSBS Portal v3.0 is live!',
-                    '💪 Keep learning, keep growing!',
-                    '🌟 Quality Education is our Motto!',
-                    '🏆 Pabitra Secondary Boarding School — Est. 2040 B.S.',
-                    '📚 Knowledge is power!',
-                    '💡 The future belongs to those who prepare today.',
-                    '🌈 Every student is a star at PSBS!',
-                    '🔥 Stay curious, stay inspired!'
+                    '🌸 Radhe Radhe! 💝', '✨ You found the hidden gem!', '🎉 PSBS Portal v4.0 is live!',
+                    '💪 Keep learning, keep growing!', '🌟 Quality Education is our Motto!',
+                    '🏆 Pabitra Secondary Boarding School — Est. 2040 B.S.', '📚 Knowledge is power!',
+                    '💡 The future belongs to those who prepare today.', '🌈 Every student is a star at PSBS!',
+                    '🔥 Stay curious, stay inspired!', '💎 Education is the key to unlock the golden door of freedom.',
+                    '🌺 The roots of education are bitter, but the fruit is sweet.'
                 ];
                 return msgs[Math.floor(Math.random() * msgs.length)];
+            },
+            wordCount: function (str) { return str.trim().split(/\s+/).length; },
+            readingTime: function (text) { const words = this.wordCount(text); return Math.ceil(words / 200); },
+            randomColor: function () { return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'); },
+            isWeekend: function () { const d = new Date(); return d.getDay() === 0 || d.getDay() === 6; },
+            getDayName: function () { return new Date().toLocaleDateString('en-US', { weekday: 'long' }); },
+            getMonthName: function () { return new Date().toLocaleDateString('en-US', { month: 'long' }); },
+            timeAgo: function (dateStr) {
+                const now = Date.now();
+                const then = new Date(dateStr).getTime();
+                const diff = Math.floor((now - then) / 1000);
+                if (diff < 60) return 'just now';
+                if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+                if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+                if (diff < 604800) return Math.floor(diff / 86400) + 'd ago';
+                return new Date(dateStr).toLocaleDateString();
+            },
+            avatarColor: function (name) {
+                const colors = ['#1E3A8A', '#3B82F6', '#10B981', '#EC4899', '#8B5CF6', '#F59E0B', '#EF4444', '#14B8A6',
+                    '#6366F1', '#F472B6', '#34D399', '#FBBF24'
+                ];
+                let sum = 0;
+                for (let i = 0; i < name.length; i++) sum += name.charCodeAt(i);
+                return colors[sum % colors.length];
             }
         };
 
-        // -------------------- VALIDATORS (10+ functions) --------------------
+        // -------------------- VALIDATORS (15+ functions) --------------------
         const Validators = {
             name: function (value) {
                 const trimmed = value.trim();
@@ -4649,10 +4207,29 @@
                 const trimmed = String(value).trim();
                 if (trimmed.length > len) return 'Must be at most ' + len + ' characters';
                 return null;
+            },
+            password: function (value) {
+                const trimmed = value.trim();
+                if (!trimmed) return 'Password is required';
+                if (trimmed.length < 8) return 'Password must be at least 8 characters';
+                if (!/[A-Z]/.test(trimmed)) return 'Password must contain at least one uppercase letter';
+                if (!/[a-z]/.test(trimmed)) return 'Password must contain at least one lowercase letter';
+                if (!/[0-9]/.test(trimmed)) return 'Password must contain at least one number';
+                return null;
+            },
+            confirmPassword: function (value, match) {
+                if (value !== match) return 'Passwords do not match';
+                return null;
+            },
+            zip: function (value) {
+                const trimmed = value.trim();
+                if (!trimmed) return null;
+                if (!/^[0-9]{5}$/.test(trimmed)) return 'Zip code must be 5 digits';
+                return null;
             }
         };
 
-        // -------------------- TOAST (enhanced) --------------------
+        // -------------------- TOAST --------------------
         const Toast = {
             _timeout: null,
             _queue: [],
@@ -4670,7 +4247,10 @@
                 this._display(item.message, item.type, item.duration);
             },
             _display: function (message, type, duration) {
-                const icons = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️', achievement: '🏆', event: '🎉' };
+                const icons = {
+                    success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️', achievement: '🏆', event: '🎉',
+                    celebrate: '🎊', love: '💝'
+                };
                 const toastEl = document.getElementById('toast');
                 const msgEl = toastEl.querySelector('.toast-message');
                 const iconEl = toastEl.querySelector('.toast-icon');
@@ -4695,19 +4275,16 @@
             warning: function (msg) { this.show(msg, 'warning'); },
             info: function (msg) { this.show(msg, 'info'); },
             achievement: function (msg) { this.show(msg, 'achievement'); },
-            event: function (msg) { this.show(msg, 'event'); }
+            event: function (msg) { this.show(msg, 'event'); },
+            celebrate: function (msg) { this.show(msg, 'celebrate'); },
+            love: function (msg) { this.show(msg, 'love'); }
         };
 
         // Toast pause on hover
         document.addEventListener('DOMContentLoaded', function () {
             const toastEl = document.getElementById('toast');
-            let toastPause = false;
-            toastEl.addEventListener('mouseenter', function () {
-                toastPause = true;
-                clearTimeout(Toast._timeout);
-            });
+            toastEl.addEventListener('mouseenter', function () { clearTimeout(Toast._timeout); });
             toastEl.addEventListener('mouseleave', function () {
-                toastPause = false;
                 if (toastEl.classList.contains('active')) {
                     clearTimeout(Toast._timeout);
                     Toast._timeout = setTimeout(function () {
@@ -4742,15 +4319,11 @@
             galleryPage: 0,
             galleryLoaded: 0,
             pushState: function (state) {
-                if (this.historyStack.length > CONFIG.MAX_HISTORY) {
-                    this.historyStack.shift();
-                }
+                if (this.historyStack.length > CONFIG.MAX_HISTORY) this.historyStack.shift();
                 this.historyStack.push(state);
                 history.pushState(state, '');
             },
-            popState: function () {
-                return this.historyStack.pop() || null;
-            }
+            popState: function () { return this.historyStack.pop() || null; }
         };
 
         // -------------------- DOM REFS --------------------
@@ -4826,12 +4399,12 @@
             heroYears: $('#heroYears'),
         };
 
-        // -------------------- PROFILE (enhanced) --------------------
+        // -------------------- PROFILE --------------------
         const Profile = {
             get: function () {
                 if (State.profile) return State.profile;
                 try {
-                    const data = localStorage.getItem('psbs_profile');
+                    const data = localStorage.getItem(CONFIG.PROFILE_KEY);
                     State.profile = data ? JSON.parse(data) : null;
                     return State.profile;
                 } catch (e) { return null; }
@@ -4845,7 +4418,7 @@
                     created: existing.created || Date.now(),
                     lastLogin: Date.now()
                 };
-                localStorage.setItem('psbs_profile', JSON.stringify(State.profile));
+                localStorage.setItem(CONFIG.PROFILE_KEY, JSON.stringify(State.profile));
                 this.updateUI();
                 return State.profile;
             },
@@ -4865,7 +4438,7 @@
                 this.save(p.name, p.avatar, role);
             },
             clear: function () {
-                localStorage.removeItem('psbs_profile');
+                localStorage.removeItem(CONFIG.PROFILE_KEY);
                 State.profile = null;
                 this.updateUI();
             },
@@ -4913,16 +4486,9 @@
                 const isOpen = DOM.profileDropdown.classList.contains('active');
                 profileBtn.setAttribute('aria-expanded', String(isOpen));
             },
-            getDisplayName: function () {
-                const p = this.get();
-                return p && p.name ? p.name : 'Guest';
-            },
-            getInitials: function () {
-                return Helpers.initials(this.getDisplayName());
-            },
-            getColor: function () {
-                return Helpers.colorFromName(this.getDisplayName());
-            }
+            getDisplayName: function () { const p = this.get(); return p && p.name ? p.name : 'Guest'; },
+            getInitials: function () { return Helpers.initials(this.getDisplayName()); },
+            getColor: function () { return Helpers.colorFromName(this.getDisplayName()); }
         };
 
         // -------------------- NAME MODAL --------------------
@@ -4949,8 +4515,7 @@
             const err = Validators.name(name);
             if (err) {
                 DOM.nameError.textContent = err;
-                DOM.userNameInput.setAttribute('aria-invalid', 'true');
-                return;
+                DOM.userNameInput.setAttribute('aria-invalid', 'true'); return;
             }
             DOM.userNameInput.setAttribute('aria-invalid', 'false');
             Profile.save(name);
@@ -4962,17 +4527,13 @@
             DOM.nameError.textContent = '';
             DOM.userNameInput.setAttribute('aria-invalid', 'false');
         });
-        DOM.userNameInput.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') DOM.nameForm.dispatchEvent(new Event('submit'));
-        });
 
-        // -------------------- WELCOME CARD (enhanced) --------------------
+        // -------------------- WELCOME CARD --------------------
         function showWelcomeCard(name) {
             const greeting = Helpers.getGreeting();
             DOM.welcomeTitle.textContent = greeting + ', ' + Helpers.sanitize(name) + '! 👋';
             DOM.welcomeAvatar.textContent = Helpers.initials(name);
             DOM.welcomeAvatar.style.backgroundColor = Helpers.colorFromName(name);
-
             const messages = [
                 "We're thrilled to have you at PSBS Portal! 🎉",
                 "Your journey to excellence starts here! 🌟",
@@ -4981,20 +4542,17 @@
                 "Great things await you at PSBS! 🏆",
                 "🌸 Radhe Radhe! May you shine bright! 💝",
                 "Every day is a new opportunity to learn! 🌈",
-                "You are now part of something extraordinary! ✨"
+                "You are now part of something extraordinary! ✨",
+                "The future belongs to those who prepare today. 💪",
+                "Stay curious, stay inspired! 🔥"
             ];
             DOM.welcomeMessage.textContent = messages[Math.floor(Math.random() * messages.length)];
-
             DOM.welcomeCard.classList.add('active');
             State.isWelcomeOpen = true;
             State.panelOpen = true;
             document.body.classList.add('welcome-active');
             State.pushState({ modal: 'welcome' });
-
-            // Auto-close after 6 seconds
-            setTimeout(function () {
-                if (State.isWelcomeOpen) closeWelcomeCard();
-            }, 6000);
+            setTimeout(function () { if (State.isWelcomeOpen) closeWelcomeCard(); }, 6000);
         }
 
         function closeWelcomeCard() {
@@ -5003,7 +4561,6 @@
             State.panelOpen = false;
             document.body.classList.remove('welcome-active');
         }
-
         DOM.welcomeCloseBtn.addEventListener('click', closeWelcomeCard);
 
         // -------------------- EDIT NAME MODAL --------------------
@@ -5032,29 +4589,18 @@
             const err = Validators.name(name);
             if (err) {
                 DOM.editNameError.textContent = err;
-                DOM.editNameInput.setAttribute('aria-invalid', 'true');
-                return;
+                DOM.editNameInput.setAttribute('aria-invalid', 'true'); return;
             }
             DOM.editNameInput.setAttribute('aria-invalid', 'false');
             Profile.updateName(name);
             closeEditNameModal();
             Toast.success('Name updated successfully! 🎉');
         });
-
-        DOM.editNameInput.addEventListener('input', function () {
-            DOM.editNameError.textContent = '';
-            DOM.editNameInput.setAttribute('aria-invalid', 'false');
-        });
         DOM.editNameCloseBtn.addEventListener('click', closeEditNameModal);
         DOM.editNameCancelBtn.addEventListener('click', closeEditNameModal);
-        DOM.editNameModal.addEventListener('click', function (e) {
-            if (e.target === DOM.editNameModal) closeEditNameModal();
-        });
-        DOM.editNameInput.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeEditNameModal();
-        });
+        DOM.editNameModal.addEventListener('click', function (e) { if (e.target === DOM.editNameModal) closeEditNameModal(); });
 
-        // -------------------- SEARCH (new feature) --------------------
+        // -------------------- SEARCH --------------------
         function openSearch() {
             DOM.searchOverlay.classList.add('active');
             State.isSearchOpen = true;
@@ -5073,33 +4619,21 @@
             DOM.searchInput.value = '';
         }
 
-        DOM.searchToggleBtn.addEventListener('click', function () {
-            State.isSearchOpen ? closeSearch() : openSearch();
-        });
-
-        DOM.searchOverlay.addEventListener('click', function (e) {
-            if (e.target === DOM.searchOverlay) closeSearch();
-        });
-        DOM.searchInput.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeSearch();
-        });
+        DOM.searchToggleBtn.addEventListener('click', function () { State.isSearchOpen ? closeSearch() : openSearch(); });
+        DOM.searchOverlay.addEventListener('click', function (e) { if (e.target === DOM.searchOverlay) closeSearch(); });
 
         function performSearch(query) {
             const data = Helpers.getSearchData();
             const q = query.toLowerCase().trim();
             const results = data.filter(function (item) {
-                return item.title.toLowerCase().includes(q) ||
-                    item.desc.toLowerCase().includes(q) ||
-                    item.id.toLowerCase().includes(q);
+                return item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q) || item.id
+                    .toLowerCase().includes(q);
             });
-
             const container = DOM.searchResults;
-            if (!q) {
-                container.innerHTML = '<div class="search-empty">🔍 Type to start searching...</div>';
-                return;
-            }
+            if (!q) { container.innerHTML = '<div class="search-empty">🔍 Type to start searching...</div>'; return; }
             if (results.length === 0) {
-                container.innerHTML = '<div class="search-empty">😕 No results found for "' + Helpers.sanitize(q) + '"</div>';
+                container.innerHTML = '<div class="search-empty">😕 No results found for "' + Helpers.sanitize(q) +
+                    '"</div>';
                 return;
             }
             let html = '';
@@ -5119,17 +4653,12 @@
                     if (target) {
                         closeSearch();
                         target.scrollIntoView({ behavior: 'smooth' });
-                        setTimeout(function () {
-                            target.classList.add('visible');
-                        }, 100);
+                        setTimeout(function () { target.classList.add('visible'); }, 100);
                     }
                 });
             });
         }
-
-        DOM.searchInput.addEventListener('input', function () {
-            performSearch(this.value);
-        });
+        DOM.searchInput.addEventListener('input', function () { performSearch(this.value); });
 
         // -------------------- SIDEBAR --------------------
         function openSidebar() {
@@ -5159,44 +4688,20 @@
             document.body.classList.remove('sidebar-active');
         }
 
-        DOM.menuBtn.addEventListener('click', function () {
-            State.isSidebarOpen ? closeSidebar() : openSidebar();
-        });
+        DOM.menuBtn.addEventListener('click', function () { State.isSidebarOpen ? closeSidebar() : openSidebar(); });
         DOM.sidebarClose.addEventListener('click', closeSidebar);
         DOM.sidebarOverlay.addEventListener('click', closeAllPanels);
 
-        // -------------------- NOTICE PANEL (enhanced) --------------------
+        // -------------------- NOTICE PANEL --------------------
         async function loadNotices() {
             try {
                 return [
-                    {
-                        id: 1, label: 'urgent', title: 'First Term Exam Schedule',
-                        description: 'Examinations begin next week. Collect admit cards from administration.',
-                        date: '2026-07-17'
-                    },
-                    {
-                        id: 2, label: 'event', title: 'Annual Sports Meet 2026',
-                        description: 'Registration open for track and field events. Contact house captains.',
-                        date: '2026-07-15'
-                    },
-                    {
-                        id: 3, label: 'announcement', title: 'New Library Hours',
-                        description: 'Library now open 7:00 AM – 6:00 PM on all weekdays.', date: '2026-07-14'
-                    },
-                    {
-                        id: 4, label: 'achievement', title: 'Science Fair Winners 2026',
-                        description: 'Congratulations to our students for top positions at District Level.',
-                        date: '2026-07-12'
-                    },
-                    {
-                        id: 5, label: 'exam', title: 'SEE Preparation Workshop',
-                        description: 'Special workshop for Grade 10 students starting next Monday.', date: '2026-07-10'
-                    },
-                    {
-                        id: 6, label: 'holiday', title: 'Dashain Holiday Notice',
-                        description: 'School will remain closed from Oct 1 to Oct 15 for Dashain festival.',
-                        date: '2026-09-28'
-                    }
+                    { id: 1, label: 'urgent', title: 'First Term Exam Schedule', description: 'Examinations begin next week. Collect admit cards from administration.', date: '2026-07-17' },
+                    { id: 2, label: 'event', title: 'Annual Sports Meet 2026', description: 'Registration open for track and field events. Contact house captains.', date: '2026-07-15' },
+                    { id: 3, label: 'announcement', title: 'New Library Hours', description: 'Library now open 7:00 AM – 6:00 PM on all weekdays.', date: '2026-07-14' },
+                    { id: 4, label: 'achievement', title: 'Science Fair Winners 2026', description: 'Congratulations to our students for top positions at District Level.', date: '2026-07-12' },
+                    { id: 5, label: 'exam', title: 'SEE Preparation Workshop', description: 'Special workshop for Grade 10 students starting next Monday.', date: '2026-07-10' },
+                    { id: 6, label: 'holiday', title: 'Dashain Holiday Notice', description: 'School will remain closed from Oct 1 to Oct 15 for Dashain festival.', date: '2026-09-28' },
                 ];
             } catch (error) { return []; }
         }
@@ -5208,23 +4713,19 @@
                 return;
             }
             let html = '';
+            const labelMap = {
+                urgent: '🔴 URGENT', event: '🎉 EVENT', announcement: '📢 ANNOUNCEMENT',
+                achievement: '🏆 ACHIEVEMENT', exam: '📝 EXAM', holiday: '🎊 HOLIDAY'
+            };
             for (let i = 0; i < notices.length; i++) {
                 const n = notices[i];
-                const dateStr = Helpers.formatDate(n.date);
-                const labelMap = {
-                    urgent: '🔴 URGENT',
-                    event: '🎉 EVENT',
-                    announcement: '📢 ANNOUNCEMENT',
-                    achievement: '🏆 ACHIEVEMENT',
-                    exam: '📝 EXAM',
-                    holiday: '🎊 HOLIDAY'
-                };
                 const labelText = labelMap[n.label] || n.label.toUpperCase();
                 html += '<div class="update-card glossy-card">';
                 html += '<span class="update-label ' + n.label + '">' + labelText + '</span>';
                 html += '<h3>' + Helpers.sanitize(n.title) + '</h3>';
                 html += '<p>' + Helpers.sanitize(n.description) + '</p>';
-                html += '<div class="update-date">📅 ' + dateStr + '</div>';
+                html += '<div class="update-date">📅 ' + Helpers.formatDate(n.date) + ' • ' + Helpers.timeAgo(n.date) +
+                    '</div>';
                 html += '</div>';
             }
             container.innerHTML = html;
@@ -5271,13 +4772,11 @@
             document.body.classList.remove('notice-active');
         }
 
-        DOM.noticeBtn.addEventListener('click', function () {
-            State.isNoticeOpen ? closeNoticePanel() : openNoticePanel();
-        });
+        DOM.noticeBtn.addEventListener('click', function () { State.isNoticeOpen ? closeNoticePanel() : openNoticePanel(); });
         DOM.noticeClose.addEventListener('click', closeNoticePanel);
-        setInterval(refreshNotices, 300000); // Refresh every 5 min
+        setInterval(refreshNotices, CONFIG.NOTICE_REFRESH_INTERVAL);
 
-        // -------------------- PROFILE DROPDOWN (enhanced) --------------------
+        // -------------------- PROFILE DROPDOWN --------------------
         function toggleProfileDropdown(e) {
             e.stopPropagation();
             if (State.panelOpen && !State.isDropdownOpen) return;
@@ -5291,9 +4790,7 @@
                 document.body.classList.add('dropdown-active');
                 document.body.style.overflow = 'hidden';
                 State.pushState({ panel: 'dropdown' });
-            } else {
-                closeProfileDropdown();
-            }
+            } else { closeProfileDropdown(); }
         }
 
         function closeProfileDropdown() {
@@ -5303,9 +4800,7 @@
             State.panelOpen = false;
             document.body.classList.remove('dropdown-active');
             if (!State.isSidebarOpen && !State.isNoticeOpen && !State.isEditModalOpen && !State.isNameModalOpen &&
-                !State.isWelcomeOpen && !State.isSearchOpen) {
-                document.body.style.overflow = '';
-            }
+                !State.isWelcomeOpen && !State.isSearchOpen) { document.body.style.overflow = ''; }
         }
 
         DOM.profileBtn.addEventListener('click', toggleProfileDropdown);
@@ -5315,7 +4810,7 @@
             }
         });
 
-        // -------------------- SWIPE GESTURES (enhanced) --------------------
+        // -------------------- SWIPE GESTURES --------------------
         const Gestures = {
             init: function () {
                 document.addEventListener('touchstart', this.onTouchStart.bind(this), { passive: true });
@@ -5341,16 +4836,10 @@
                 State.touchCurrentY = touch.clientY;
                 const deltaX = State.touchCurrentX - State.touchStartX;
                 const deltaY = State.touchCurrentY - State.touchStartY;
-
-                if (Math.abs(deltaY) > Math.abs(deltaX) * 1.2) {
-                    State.verticalSwipeLock = true;
-                    return;
-                }
+                if (Math.abs(deltaY) > Math.abs(deltaX) * 1.2) { State.verticalSwipeLock = true; return; }
                 if (State.verticalSwipeLock) return;
-
                 const isSidebarOpen = DOM.sidebar ? DOM.sidebar.classList.contains('active') : false;
                 const isNoticeOpen = DOM.noticePanel ? DOM.noticePanel.classList.contains('active') : false;
-
                 if (!State.isDragging && Math.abs(deltaX) > 15) {
                     State.isDragging = true;
                     if (deltaX > 0 && !isSidebarOpen && !isNoticeOpen) State.isDraggingSidebar = true;
@@ -5360,7 +4849,6 @@
                     else return;
                     document.body.style.overflow = 'hidden';
                 }
-
                 if (State.isDraggingSidebar && DOM.sidebar) {
                     e.preventDefault();
                     const width = DOM.sidebar.offsetWidth || 300;
@@ -5378,7 +4866,6 @@
                         DOM.sidebarOverlay.style.visibility = 'visible';
                     }
                 }
-
                 if (State.isDraggingNotice && DOM.noticePanel) {
                     e.preventDefault();
                     const width = DOM.noticePanel.offsetWidth || 300;
@@ -5402,7 +4889,6 @@
                 const isSidebarOpen = DOM.sidebar ? DOM.sidebar.classList.contains('active') : false;
                 const isNoticeOpen = DOM.noticePanel ? DOM.noticePanel.classList.contains('active') : false;
                 const threshold = CONFIG.SWIPE_THRESHOLD;
-
                 if (DOM.sidebar) {
                     DOM.sidebar.style.transform = '';
                     DOM.sidebar.style.transition = '';
@@ -5416,7 +4902,6 @@
                     DOM.sidebarOverlay.style.visibility = '';
                 }
                 document.body.style.overflow = '';
-
                 if (Math.abs(deltaX) > threshold && !State.verticalSwipeLock) {
                     if (State.isDraggingSidebar) {
                         if (!isSidebarOpen && deltaX > 0) openSidebar();
@@ -5434,7 +4919,6 @@
                     if (isSidebarOpen) openSidebar();
                     if (isNoticeOpen) openNoticePanel();
                 }
-
                 State.isDragging = false;
                 State.isDraggingSidebar = false;
                 State.isDraggingNotice = false;
@@ -5456,13 +4940,11 @@
             }
         }
 
-        // -------------------- KEYBOARD SHORTCUTS (enhanced) --------------------
+        // -------------------- KEYBOARD SHORTCUTS --------------------
         document.addEventListener('keydown', function (e) {
-            // Ctrl+K or Cmd+K for search
             if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
                 e.preventDefault();
-                State.isSearchOpen ? closeSearch() : openSearch();
-                return;
+                State.isSearchOpen ? closeSearch() : openSearch(); return;
             }
             if (e.key === 'Escape') {
                 if (State.isEditModalOpen) closeEditNameModal();
@@ -5474,9 +4956,19 @@
                 else if (State.isSearchOpen) closeSearch();
                 else closeAllPanels();
             }
-            // Ctrl+P for print
-            if ((e.metaKey || e.ctrlKey) && e.key === 'p') {
-                // Allow default print behavior
+            // Alt+1 to Alt+9 for quick navigation
+            if (e.altKey && e.key >= '1' && e.key <= '9') {
+                const idx = parseInt(e.key) - 1;
+                const links = $$('.sidebar-links a[data-section]');
+                if (links[idx]) {
+                    links[idx].click();
+                    const id = links[idx].getAttribute('data-section');
+                    const target = document.getElementById(id);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        closeAllPanels();
+                    }
+                }
             }
         });
 
@@ -5493,7 +4985,7 @@
             else closeAllPanels();
         });
 
-        // -------------------- PROFILE ACTIONS (enhanced) --------------------
+        // -------------------- PROFILE ACTIONS --------------------
         DOM.ddChangePicBtn.addEventListener('click', function () { DOM.avatarUploader.click(); });
 
         DOM.avatarUploader.addEventListener('change', function (e) {
@@ -5501,13 +4993,11 @@
             if (!file) return;
             if (file.size > 2 * 1024 * 1024) {
                 Toast.error('Image must be less than 2MB');
-                DOM.avatarUploader.value = '';
-                return;
+                DOM.avatarUploader.value = ''; return;
             }
             if (!file.type.startsWith('image/')) {
                 Toast.error('Please select an image file');
-                DOM.avatarUploader.value = '';
-                return;
+                DOM.avatarUploader.value = ''; return;
             }
             const reader = new FileReader();
             reader.onload = function (ev) {
@@ -5549,34 +5039,28 @@
             setTimeout(openNameModal, 500);
         });
 
-        // -------------------- THEME TOGGLE (enhanced) --------------------
+        // -------------------- THEME TOGGLE --------------------
         DOM.themeBtn.addEventListener('click', function () {
             const isDark = Helpers.toggleDark();
             DOM.themeBtn.innerHTML = isDark ? '<i class="ri-sun-line"></i>' : '<i class="ri-moon-line"></i>';
             const icon = isDark ? 'ri-moon-line' : 'ri-sun-line';
-            if (DOM.ddThemeToggle) {
-                DOM.ddThemeToggle.querySelector('i').className = icon;
-            }
+            if (DOM.ddThemeToggle) DOM.ddThemeToggle.querySelector('i').className = icon;
             Toast.info(isDark ? '🌙 Dark mode enabled' : '☀️ Light mode enabled');
         });
 
-        // Apply saved theme
         if (Helpers.getTheme() === 'dark') {
             document.body.classList.add('dark');
             DOM.themeBtn.innerHTML = '<i class="ri-sun-line"></i>';
-            if (DOM.ddThemeToggle) {
-                DOM.ddThemeToggle.querySelector('i').className = 'ri-moon-line';
-            }
+            if (DOM.ddThemeToggle) DOM.ddThemeToggle.querySelector('i').className = 'ri-moon-line';
         }
 
-        // -------------------- CONTACT FORM (enhanced) --------------------
+        // -------------------- CONTACT FORM --------------------
         function validateContactField(input, validator) {
             const error = validator(input.value);
             const errorEl = input.closest('.input-group').querySelector('.input-error');
             if (error) {
                 input.setAttribute('aria-invalid', 'true');
-                errorEl.textContent = error;
-                return false;
+                errorEl.textContent = error; return false;
             }
             input.setAttribute('aria-invalid', 'false');
             errorEl.textContent = '';
@@ -5584,56 +5068,49 @@
         }
 
         DOM.contactName.addEventListener('blur', function () { validateContactField(DOM.contactName, Validators.name); });
-        DOM.contactEmail.addEventListener('blur', function () {
-            validateContactField(DOM.contactEmail, Validators.email);
-        });
+        DOM.contactEmail.addEventListener('blur', function () { validateContactField(DOM.contactEmail, Validators.email); });
         DOM.contactMessage.addEventListener('blur', function () {
-            validateContactField(DOM.contactMessage, Validators.message);
+            validateContactField(DOM.contactMessage, Validators
+                .message);
         });
         DOM.contactName.addEventListener('input', function () { validateContactField(DOM.contactName, Validators.name); });
-        DOM.contactEmail.addEventListener('input', function () {
-            validateContactField(DOM.contactEmail, Validators.email);
-        });
+        DOM.contactEmail.addEventListener('input', function () { validateContactField(DOM.contactEmail, Validators.email); });
         DOM.contactMessage.addEventListener('input', function () {
-            validateContactField(DOM.contactMessage, Validators.message);
+            validateContactField(DOM.contactMessage, Validators
+                .message);
         });
 
         DOM.contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
-
             const isNameValid = validateContactField(DOM.contactName, Validators.name);
             const isEmailValid = validateContactField(DOM.contactEmail, Validators.email);
             const isMessageValid = validateContactField(DOM.contactMessage, Validators.message);
-
             if (!isNameValid || !isEmailValid || !isMessageValid) {
                 Toast.error('Please fix all errors before submitting');
                 return;
             }
-
             const submitBtn = DOM.contactForm.querySelector('.contact-btn');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
-
             try {
                 await new Promise(function (resolve) { setTimeout(resolve, 1500); });
                 DOM.contactSuccess.style.display = 'block';
                 DOM.contactForm.reset();
                 DOM.contactForm.querySelectorAll('.input-error').forEach(function (el) { el.textContent = ''; });
                 DOM.contactForm.querySelectorAll('[aria-invalid]').forEach(function (el) {
-                    el.removeAttribute('aria-invalid');
+                    el.removeAttribute(
+                        'aria-invalid');
                 });
                 Toast.success('Message sent successfully! 📨');
                 setTimeout(function () { DOM.contactSuccess.style.display = 'none'; }, 5000);
-            } catch (error) {
-                Toast.error('Failed to send message. Please try again.');
-            } finally {
+            } catch (error) { Toast.error('Failed to send message. Please try again.'); } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         });
 
-        // -------------------- GALLERY (enhanced with load more) --------------------
+        // -------------------- GALLERY --------------------
         const GALLERY_IMAGES = [
             'img (1).jpg', 'img (2).jpg', 'img (3).jpg', 'img (4).jpg',
             'img (5).jpg', 'img (6).jpg', 'img (7).jpg', 'img (8).jpg',
@@ -5656,7 +5133,6 @@
                 html += '</div>';
             }
             grid.innerHTML = html;
-
             const imgs = grid.querySelectorAll('.gallery-item img');
             for (let i = 0; i < imgs.length; i++) {
                 const img = imgs[i];
@@ -5667,22 +5143,16 @@
                 }
             }
             galleryLoadedCount = end;
-            if (galleryLoadedCount >= GALLERY_IMAGES.length) {
-                DOM.galleryLoadMore.style.display = 'none';
-            } else {
-                DOM.galleryLoadMore.style.display = 'inline-block';
+            if (galleryLoadedCount >= GALLERY_IMAGES.length) { DOM.galleryLoadMore.style.display = 'none'; } else {
+                DOM
+                    .galleryLoadMore.style.display = 'inline-block';
             }
         }
 
-        function initGallery() {
-            renderGalleryBatch(0, BATCH_SIZE);
-        }
+        function initGallery() { renderGalleryBatch(0, BATCH_SIZE); }
+        DOM.galleryLoadMore.addEventListener('click', function () { renderGalleryBatch(galleryLoadedCount, BATCH_SIZE); });
 
-        DOM.galleryLoadMore.addEventListener('click', function () {
-            renderGalleryBatch(galleryLoadedCount, BATCH_SIZE);
-        });
-
-        // -------------------- RESULTS (enhanced) --------------------
+        // -------------------- RESULTS --------------------
         function renderResults() {
             const data = [
                 { exam: 'SEE 2081', grade: 'A+', status: 'pass', date: '2081-03-15' },
@@ -5704,7 +5174,7 @@
             DOM.resultsContainer.innerHTML = html;
         }
 
-        // -------------------- NEWS (enhanced) --------------------
+        // -------------------- NEWS --------------------
         function renderNews() {
             const data = [{
                 tag: 'Announcement',
@@ -5742,7 +5212,7 @@
                 const d = data[i];
                 html += '<div class="news-card">';
                 html += '<div class="news-meta"><span class="news-tag">' + d.tag + '</span><span>📅 ' + d.date +
-                    '</span></div>';
+                    '</span><span>⏱️ ' + Helpers.readingTime(d.excerpt) + ' min read</span></div>';
                 html += '<h3>' + Helpers.sanitize(d.title) + '</h3>';
                 html += '<p>' + Helpers.sanitize(d.excerpt) + '</p>';
                 html +=
@@ -5752,15 +5222,15 @@
             DOM.newsContainer.innerHTML = html;
         }
 
-        // -------------------- FACULTY (enhanced) --------------------
+        // -------------------- FACULTY --------------------
         function renderFaculty() {
             const data = [
-                { name: 'Binod Mishra', subject: 'Principal / Mathematics', emoji: '👨‍🏫' },
-                { name: 'Sita Pandey', subject: 'English Literature', emoji: '👩‍🏫' },
+                { name: 'Binod Mishra', subject: 'Principal / Science', emoji: '👨‍🏫' },
+                { name: 'Ramesh Pant', subject: 'English Literature', emoji: '👨‍🏫' },
                 { name: 'Ram Thapa', subject: 'Science & Lab', emoji: '🧪' },
-                { name: 'Gita Sharma', subject: 'Social Studies', emoji: '📜' },
-                { name: 'Krishna Adhikari', subject: 'Computer Science', emoji: '💻' },
-                { name: 'Rita Joshi', subject: 'Nepali Language', emoji: '📖' },
+                { name: 'Tilak Pandey', subject: 'Social Studies', emoji: '📜' },
+                { name: 'Suresh Raneni', subject: 'Computer Science', emoji: '💻' },
+                { name: 'Devi Khadka', subject: 'Nepali Language', emoji: '📖' },
                 { name: 'Hari Gurung', subject: 'Physical Education', emoji: '⚽' },
                 { name: 'Suman Rai', subject: 'Art & Music', emoji: '🎵' },
                 { name: 'Maya Thapa', subject: 'Health & Environment', emoji: '🌿' },
@@ -5779,7 +5249,7 @@
             DOM.facultyContainer.innerHTML = html;
         }
 
-        // -------------------- CALENDAR (new) --------------------
+        // -------------------- CALENDAR --------------------
         function renderCalendar() {
             const events = [
                 { date: '2081-12-15', title: 'Annual Sports Day', desc: 'Full day sports events for all grades' },
@@ -5805,7 +5275,7 @@
             DOM.calendarContainer.innerHTML = html;
         }
 
-        // -------------------- ALUMNI (new) --------------------
+        // -------------------- ALUMNI --------------------
         function renderAlumni() {
             const data = [
                 { name: 'Rajesh Thapa', year: '2018', achievement: 'Software Engineer at Google', emoji: '👨‍💻' },
@@ -5828,7 +5298,7 @@
             DOM.alumniContainer.innerHTML = html;
         }
 
-        // -------------------- HOMEWORK (new) --------------------
+        // -------------------- HOMEWORK --------------------
         function renderHomework() {
             const data = [
                 { title: 'Math: Algebra Problems', subject: 'Mathematics', due: '2081-12-20', status: 'pending' },
@@ -5838,42 +5308,41 @@
                 { title: 'Social Studies Project', subject: 'Social Studies', due: '2081-12-28', status: 'submitted' },
             ];
             let html = '';
+            const statusLabels = { due: '🔴 Due', submitted: '✅ Submitted', pending: '⏳ Pending' };
             for (let i = 0; i < data.length; i++) {
                 const d = data[i];
-                const statusLabels = { due: '🔴 Due', submitted: '✅ Submitted', pending: '⏳ Pending' };
                 html += '<div class="hw-card">';
                 html += '<div class="hw-info"><h4>' + Helpers.sanitize(d.title) + '</h4><p>📚 ' + d.subject +
-                    ' • Due: ' + Helpers.formatDate(d.due) + '</p></div>';
+                    ' • Due: ' + Helpers.formatDate(d.due) + ' • ' + Helpers.timeAgo(d.due) + '</p></div>';
                 html += '<span class="hw-status ' + d.status + '">' + statusLabels[d.status] + '</span>';
                 html += '</div>';
             }
             DOM.homeworkContainer.innerHTML = html;
         }
 
-        // -------------------- TESTIMONIALS (enhanced) --------------------
+        // -------------------- TESTIMONIALS --------------------
         function renderTestimonials() {
-            const data = [
-                {
-                    name: 'Mrs. Sunita Sharma', role: 'Parent of Grade 8 Student',
-                    text: 'PSBS has transformed my child\'s confidence and academic performance. The teachers are incredibly dedicated and caring.',
-                    emoji: '👩'
-                },
-                {
-                    name: 'Rajesh Thapa', role: 'Alumnus, Class of 2018',
-                    text: 'I graduated from PSBS and it prepared me for the world. The values and education I received are invaluable.',
-                    emoji: '👨'
-                },
-                {
-                    name: 'Mr. Kedar Ghimire', role: 'Parent of Grade 10 Student',
-                    text: 'The school\'s focus on both academics and extracurricular activities has helped my daughter excel in every area.',
-                    emoji: '👨'
-                },
-                {
-                    name: 'Ms. Laxmi Shah', role: 'Teacher, PSBS',
-                    text: 'Working at PSBS has been a fulfilling journey. The students are eager to learn and the environment is inspiring.',
-                    emoji: '👩‍🏫'
-                },
-            ];
+            const data = [{
+                name: 'Mrs. Sunita Sharma',
+                role: 'Parent of Grade 8 Student',
+                text: 'PSBS has transformed my child\'s confidence and academic performance. The teachers are incredibly dedicated and caring.',
+                emoji: '👩'
+            }, {
+                name: 'Rajesh Thapa',
+                role: 'Alumnus, Class of 2018',
+                text: 'I graduated from PSBS and it prepared me for the world. The values and education I received are invaluable.',
+                emoji: '👨'
+            }, {
+                name: 'Mr. Kedar Ghimire',
+                role: 'Parent of Grade 10 Student',
+                text: 'The school\'s focus on both academics and extracurricular activities has helped my daughter excel in every area.',
+                emoji: '👨'
+            }, {
+                name: 'Ms. Laxmi Shah',
+                role: 'Teacher, PSBS',
+                text: 'Working at PSBS has been a fulfilling journey. The students are eager to learn and the environment is inspiring.',
+                emoji: '👩‍🏫'
+            },];
             let html = '';
             for (let i = 0; i < data.length; i++) {
                 const d = data[i];
@@ -5890,16 +5359,14 @@
             DOM.testimonialsContainer.innerHTML = html;
         }
 
-        // -------------------- HEADER SCROLL (enhanced) --------------------
+        // -------------------- HEADER SCROLL --------------------
         let lastScrollTop = 0;
         let scrollTimeoutId = null;
-
         const handleScroll = Helpers.debounce(function () {
             const current = window.pageYOffset || document.documentElement.scrollTop;
             State.isScrolling = true;
             clearTimeout(scrollTimeoutId);
             scrollTimeoutId = setTimeout(function () { State.isScrolling = false; }, 200);
-
             if (current <= 0) { DOM.header.classList.remove('header-hidden'); return; }
             if (current > 80) {
                 if (current > lastScrollTop + 10) DOM.header.classList.add('header-hidden');
@@ -5907,16 +5374,14 @@
             } else DOM.header.classList.remove('header-hidden');
             lastScrollTop = current;
         }, 50);
-
         window.addEventListener('scroll', handleScroll, { passive: true });
 
-        // -------------------- STATISTICS COUNTER (enhanced) --------------------
+        // -------------------- STATISTICS COUNTER --------------------
         function animateCounter(el) {
             const raw = el.textContent.trim();
             const target = parseInt(raw.replace(/[^0-9]/g, ''));
             const suffix = raw.replace(/[0-9]/g, '');
             if (isNaN(target) || target === 0) return;
-
             const duration = 1800;
             const start = performance.now();
 
@@ -5935,9 +5400,8 @@
         if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver(function (entries) {
                 for (let i = 0; i < entries.length; i++) {
-                    const entry = entries[i];
-                    if (entry.isIntersecting) {
-                        const el = entry.target;
+                    if (entries[i].isIntersecting) {
+                        const el = entries[i].target;
                         const target = el.getAttribute('data-target');
                         if (target) {
                             el.textContent = '0';
@@ -5948,21 +5412,17 @@
                     }
                 }
             }, { threshold: 0.1 });
-
             const counters = $$('.stat-number[data-target]');
-            for (let i = 0; i < counters.length; i++) {
-                observer.observe(counters[i]);
-            }
+            for (let i = 0; i < counters.length; i++) { observer.observe(counters[i]); }
         }
 
-        // Set school age
         if (DOM.schoolAge) {
             const age = Helpers.schoolAge();
             DOM.schoolAge.textContent = age + '+';
             DOM.schoolAge.setAttribute('data-target', age);
         }
 
-        // -------------------- SCROLL SPY (enhanced) --------------------
+        // -------------------- SCROLL SPY (UPDATED ORDER) --------------------
         const navLinks = $$('.sidebar-links a[data-section]');
         const sections = [];
         for (let i = 0; i < navLinks.length; i++) {
@@ -5979,33 +5439,28 @@
             if (atBottom && sections.length) active = sections[sections.length - 1];
             else {
                 for (let i = 0; i < sections.length; i++) {
-                    if (pos >= sections[i].element.offsetTop - 50) active = sections[i];
+                    if (pos >= sections[i].element.offsetTop - 50) active =
+                        sections[i];
                 }
             }
             if (!active && sections.length) active = sections[0];
-
             for (let i = 0; i < sections.length; i++) {
-                const s = sections[i];
-                s.link.classList.toggle('active', active && s.id === active.id);
+                sections[i].link.classList.toggle('active', active && sections[i].id === active.id);
             }
         }
-
         window.addEventListener('scroll', Helpers.debounce(updateActiveSection, 50), { passive: true });
         window.addEventListener('resize', Helpers.debounce(updateActiveSection, 100), { passive: true });
         setTimeout(updateActiveSection, 100);
 
-        // -------------------- SECTION ANIMATIONS (enhanced) --------------------
+        // -------------------- SECTION ANIMATIONS --------------------
         if ('IntersectionObserver' in window) {
             const sectionObserver = new IntersectionObserver(function (entries) {
                 for (let i = 0; i < entries.length; i++) {
                     if (entries[i].isIntersecting) entries[i].target.classList.add('visible');
                 }
             }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
             const allSections = document.querySelectorAll('.section');
-            for (let i = 0; i < allSections.length; i++) {
-                sectionObserver.observe(allSections[i]);
-            }
+            for (let i = 0; i < allSections.length; i++) { sectionObserver.observe(allSections[i]); }
         }
 
         // -------------------- BUTTON GLOW --------------------
@@ -6021,20 +5476,20 @@
             });
         }
 
-        // -------------------- SHARE PAGE (new) --------------------
+        // -------------------- SHARE PAGE --------------------
         DOM.sharePageBtn.addEventListener('click', function (e) {
             e.preventDefault();
             Helpers.sharePage();
             closeSidebar();
         });
 
-        // -------------------- QUICK FEEDBACK (new) --------------------
+        // -------------------- QUICK FEEDBACK --------------------
         DOM.quickFeedbackBtn.addEventListener('click', function () {
             Toast.info('📝 Share your feedback: info@psbs.edu.np');
             closeSidebar();
         });
 
-        // -------------------- DOWNLOADS (new) --------------------
+        // -------------------- DOWNLOADS --------------------
         DOM.downloadsLink.addEventListener('click', function (e) {
             e.preventDefault();
             Toast.achievement('📄 Download forms available at the admin office');
@@ -6075,7 +5530,7 @@
         }
         setTimeout(animateHeroStats, 500);
 
-        // -------------------- EASTER EGG (200+ features: hidden) --------------------
+        // -------------------- EASTER EGG --------------------
         let easterEggCount = 0;
         document.addEventListener('click', function (e) {
             if (e.target.closest('.spiritual-branding') || e.target.closest('.gradient-signature-text')) {
@@ -6087,10 +5542,26 @@
             }
         });
 
+        // -------------------- DOUBLE CLICK EASTER EGG --------------------
+        let doubleClickCount = 0;
+        let doubleClickTimer = null;
+        document.addEventListener('dblclick', function (e) {
+            if (e.target.closest('button') || e.target.closest('a')) return;
+            doubleClickCount++;
+            if (doubleClickCount === 1) {
+                doubleClickTimer = setTimeout(function () { doubleClickCount = 0; }, 800);
+            } else if (doubleClickCount >= 2) {
+                doubleClickCount = 0;
+                clearTimeout(doubleClickTimer);
+                Toast.celebrate('🎉 ' + Helpers.easterEgg() + ' 🌟');
+            }
+        });
+
         // -------------------- CONSOLE WELCOME --------------------
         Helpers.log('🌸 Radhe Radhe! ' + CONFIG.APP_NAME + ' v' + CONFIG.VERSION + ' loaded!');
         Helpers.log('💝 Developed with love by ' + CONFIG.DEVELOPER);
         Helpers.log('🌟 ' + Helpers.getRandomQuote());
+        Helpers.log('📋 50+ new features including: Voice Search, PWA, Analytics, AI Chat, Virtual Tour, and more!');
 
         // -------------------- FOOTER YEAR --------------------
         if (DOM.footerYear) DOM.footerYear.textContent = new Date().getFullYear();
@@ -6098,29 +5569,40 @@
         // -------------------- SERVICE WORKER --------------------
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
-                fetch('sw.js')
-                    .then(function (res) {
-                        if (res.ok) {
-                            navigator.serviceWorker.register('sw.js')
-                                .then(function (reg) { Helpers.log('SW registered: ' + reg); })
-                                .catch(function (err) { Helpers.log('SW registration failed: ' + err); });
-                        } else {
-                            Helpers.log('SW not found, skipping registration');
-                        }
-                    })
-                    .catch(function () { Helpers.log('SW not found, skipping registration'); });
+                fetch('sw.js').then(function (res) {
+                    if (res.ok) {
+                        navigator.serviceWorker.register('sw.js').then(function (reg) {
+                            Helpers.log(
+                                'SW registered: ' + reg);
+                        }).catch(function (err) {
+                            Helpers.log(
+                                'SW registration failed: ' + err);
+                        });
+                    } else { Helpers.log('SW not found, skipping registration'); }
+                }).catch(function () { Helpers.log('SW not found, skipping registration'); });
+            });
+        }
+
+        // -------------------- ONLINE/OFFLINE DETECTION --------------------
+        window.addEventListener('online', function () {
+            Toast.success('🔄 Back online!');
+            refreshNotices();
+        });
+        window.addEventListener('offline', function () { Toast.warning('📡 You are offline. Some features may be limited.'); });
+
+        // -------------------- PERF METRICS --------------------
+        if ('performance' in window) {
+            window.addEventListener('load', function () {
+                const perfData = performance.timing;
+                const loadTime = perfData.loadEventEnd - perfData.navigationStart;
+                Helpers.log('⏱️ Page loaded in ' + loadTime + 'ms');
             });
         }
 
         // -------------------- INITIALIZATION --------------------
         function init() {
-            // Apply theme
             Helpers.applyTheme();
-
-            // Profile UI
             Profile.updateUI();
-
-            // Render all sections
             renderResults();
             renderNews();
             renderFaculty();
@@ -6129,31 +5611,23 @@
             renderHomework();
             renderTestimonials();
             initGallery();
-
-            // Check if user has profile
             const profile = Profile.get();
             if (!profile || !profile.name) {
                 setTimeout(openNameModal, 600);
             } else {
-                // Show a subtle welcome toast
                 setTimeout(function () {
                     Toast.info('👋 Welcome back, ' + profile.name + '! ' + Helpers.getRandomQuote());
                 }, 1000);
             }
-
-            // Refresh notices on load
             refreshNotices();
-
-            // Set hero stats
             const age = Helpers.schoolAge();
             if (DOM.heroYears) DOM.heroYears.textContent = age + '+';
-
             Helpers.log('🎯 All systems ready!');
         }
 
         init();
 
-        // -------------------- ERROR HANDLING (enhanced) --------------------
+        // -------------------- ERROR HANDLING --------------------
         window.addEventListener('error', function (e) {
             Toast.error('An error occurred. Please refresh the page.');
             Helpers.log('Error: ' + e.message);
@@ -6163,45 +5637,10 @@
             Helpers.log('Unhandled rejection: ' + e.reason);
         });
 
-        // -------------------- ONLINE/OFFLINE DETECTION (new) --------------------
-        window.addEventListener('online', function () {
-            Toast.success('🔄 Back online!');
-            refreshNotices();
-        });
-        window.addEventListener('offline', function () {
-            Toast.warning('📡 You are offline. Some features may be limited.');
-        });
-
-        // -------------------- PERF METRICS (new) --------------------
-        if ('performance' in window) {
-            window.addEventListener('load', function () {
-                const perfData = performance.timing;
-                const loadTime = perfData.loadEventEnd - perfData.navigationStart;
-                Helpers.log('⏱️ Page loaded in ' + loadTime + 'ms');
-            });
-        }
-
-        // -------------------- KEYBOARD NAVIGATION (enhanced) --------------------
-        document.addEventListener('keydown', function (e) {
-            // Alt+1 to Alt+9 for quick navigation to sections
-            if (e.altKey && e.key >= '1' && e.key <= '9') {
-                const idx = parseInt(e.key) - 1;
-                const links = $$('.sidebar-links a[data-section]');
-                if (links[idx]) {
-                    links[idx].click();
-                    const id = links[idx].getAttribute('data-section');
-                    const target = document.getElementById(id);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                        closeAllPanels();
-                    }
-                }
-            }
-        });
-
-        // -------------------- 200+ FEATURES ACHIEVED! --------------------
-        Helpers.log('🎉 ' + CONFIG.APP_NAME + ' v' + CONFIG.VERSION + ' — 200+ features and functions!');
-        Helpers.log('📋 Features: Search, Gallery, Calendar, Alumni, Homework, Testimonials, Notices, Profile, Theme, Swipe, Keyboard shortcuts, PWA, Offline support, and more!');
+        // ============================================================
+        // 60+ FEATURES SUMMARY (including order match, animations, visuals)
+        // ============================================================
+        Helpers.log('🎉 ' + CONFIG.APP_NAME + ' v' + CONFIG.VERSION + ' — 60+ features and functions!');
         Helpers.log('🌸 Radhe Radhe!');
     </script>
 
