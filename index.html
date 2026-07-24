@@ -27,7 +27,7 @@
     <title>PSBS Portal — Pabitra School</title>
     <style>
         /* ============================================================
-           MULTIVERSE UI — Ultimate Professional Integration
+           MULTIVERSE UI — COMPLETE FIXED VERSION
            ============================================================ */
         :root {
             --primary: #1E3A8A;
@@ -82,7 +82,6 @@
             --nebula-color-3: #F59E0B;
         }
 
-        /* Theme presets */
         body.theme-purple {
             --primary: #7C3AED;
             --primary-dark: #5B21B6;
@@ -155,6 +154,18 @@
             --nebula-color-3: #A5B4FC;
         }
 
+        body.theme-coral {
+            --primary: #E85D75;
+            --primary-dark: #C0394A;
+            --primary-light: #F1948A;
+            --secondary: #E85D75;
+            --theme-color: #E85D75;
+            --theme-secondary: #F1948A;
+            --nebula-color-1: #E85D75;
+            --nebula-color-2: #F1948A;
+            --nebula-color-3: #F5B7B1;
+        }
+
         body.dark {
             --background: #0F172A;
             --surface: rgba(30, 41, 59, 0.8);
@@ -195,9 +206,7 @@
             overflow-x: hidden;
             font-size: var(--font-size-base);
             transition: background 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                --primary 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                --secondary 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             min-height: 100vh;
             min-height: 100dvh;
         }
@@ -211,7 +220,6 @@
             overflow: hidden !important;
         }
 
-        /* ===== Nebula Background ===== */
         .nebula-bg {
             position: fixed;
             inset: 0;
@@ -284,7 +292,6 @@
             }
         }
 
-        /* ===== Glassmorphism Base ===== */
         .glass {
             background: var(--glass-bg);
             backdrop-filter: blur(20px) saturate(180%);
@@ -293,7 +300,6 @@
             box-shadow: var(--glass-shadow);
         }
 
-        /* ===== Skip Link ===== */
         .skip-link {
             position: absolute;
             top: -100%;
@@ -329,9 +335,7 @@
             margin: 0 auto;
         }
 
-        /* ============================================================
-           TOAST – Multiverse Edition
-           ============================================================ */
+        /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 24px;
@@ -350,17 +354,13 @@
             font-weight: 450;
             color: var(--text);
             transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-                opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.4s ease;
+                opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0;
             pointer-events: none;
             width: 80%;
             min-width: 280px;
             max-width: 500px;
-            white-space: normal;
             word-break: break-word;
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
             background: var(--surface);
             border-left: 4px solid var(--primary);
         }
@@ -467,7 +467,6 @@
             }
         }
 
-        /* ===== Skeleton Loader ===== */
         .skeleton {
             background: linear-gradient(90deg, var(--border) 25%, var(--surface-solid) 50%, var(--border) 75%);
             background-size: 200% 100%;
@@ -486,9 +485,7 @@
             }
         }
 
-        /* ============================================================
-           MODALS – Ultimate Centering & Glass
-           ============================================================ */
+        /* ===== MODALS — CENTERED ===== */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -499,10 +496,11 @@
             align-items: center;
             justify-content: center;
             z-index: var(--z-modal);
-            padding: 16px;
+            padding: 20px;
             opacity: 0;
             visibility: hidden;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto;
         }
 
         .modal-overlay.active {
@@ -520,18 +518,19 @@
             padding: 32px 28px;
             box-shadow: var(--shadow-xl), var(--shadow-glow);
             border: 1px solid var(--glass-border);
-            transform: scale(0.92) translateY(30px) rotateX(2deg);
+            transform: scale(0.92) translateY(20px);
             transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
                 opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0;
-            max-height: 90vh;
+            max-height: 85vh;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             position: relative;
+            margin: 0;
         }
 
         .modal-overlay.active .modal-card {
-            transform: scale(1) translateY(0) rotateX(0deg);
+            transform: scale(1) translateY(0);
             opacity: 1;
         }
 
@@ -572,9 +571,6 @@
             transform: rotate(90deg);
         }
 
-        /* ============================================================
-           EDIT NAME MODAL – Perfect Center
-           ============================================================ */
         .edit-modal-card .modal-actions {
             display: flex;
             gap: 10px;
@@ -631,9 +627,6 @@
             transform: none;
         }
 
-        /* ============================================================
-           NAME MODAL
-           ============================================================ */
         .name-modal-card {
             text-align: center;
         }
@@ -657,9 +650,6 @@
             margin-bottom: 18px;
         }
 
-        /* ============================================================
-           WELCOME CARD – Center
-           ============================================================ */
         .welcome-card-overlay {
             position: fixed;
             inset: 0;
@@ -670,10 +660,11 @@
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            padding: 16px;
+            padding: 20px;
             opacity: 0;
             visibility: hidden;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto;
         }
 
         .welcome-card-overlay.active {
@@ -692,11 +683,12 @@
             box-shadow: var(--shadow-xl), var(--shadow-glow);
             border: 1px solid var(--glass-border);
             text-align: center;
-            transform: scale(0.85) translateY(30px);
+            transform: scale(0.85) translateY(20px);
             transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
                 opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0;
             position: relative;
+            margin: 0;
         }
 
         .welcome-card-overlay.active .welcome-card {
@@ -752,54 +744,56 @@
             box-shadow: 0 6px 28px rgba(245, 158, 11, 0.4);
         }
 
-        /* ============================================================
-           AI CHAT – Center Modal with Bubble UI
-           ============================================================ */
+        /* ===== AI CHAT — Centered ===== */
         .chat-modal-card {
             max-width: 480px !important;
             padding: 0 !important;
             overflow: hidden !important;
             display: flex;
             flex-direction: column;
-            max-height: 80vh;
-            height: 500px;
+            max-height: 70vh;
+            height: 480px;
             width: 100%;
             border-radius: var(--radius-xl);
             position: relative;
-            transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             background: var(--surface);
             backdrop-filter: blur(32px) saturate(180%);
             -webkit-backdrop-filter: blur(32px) saturate(180%);
             box-shadow: var(--shadow-xl), var(--shadow-glow);
             border: 1px solid var(--glass-border);
+            margin: 0;
+        }
+
+        .modal-overlay .chat-modal-card {
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+        }
+
+        .modal-overlay.active .chat-modal-card {
+            transform: scale(1) translateY(0);
+            opacity: 1;
         }
 
         @media (max-width: 600px) {
             .chat-modal-card {
-                max-height: 85dvh !important;
-                height: 85dvh !important;
-                max-width: 100% !important;
-                border-radius: var(--radius-xl) var(--radius-xl) 0 0 !important;
-                margin-top: auto;
+                max-height: 70vh !important;
+                height: 460px !important;
+                max-width: 95% !important;
+                border-radius: var(--radius-xl) !important;
+                margin: 0 !important;
             }
 
             .modal-overlay {
-                align-items: flex-end !important;
-                padding: 0 !important;
-                background: rgba(15, 23, 42, 0.4);
-            }
-
-            .modal-overlay.active .chat-modal-card {
-                transform: scale(1) translateY(0) !important;
-                border-radius: var(--radius-xl) var(--radius-xl) 0 0 !important;
+                padding: 16px !important;
             }
         }
 
         @media (min-width: 601px) {
             .chat-modal-card {
-                height: 540px;
-                max-height: 75vh;
+                height: 480px;
+                max-height: 70vh;
             }
         }
 
@@ -807,7 +801,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 16px 18px;
+            padding: 14px 18px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
             flex-shrink: 0;
@@ -873,20 +867,20 @@
         .chat-modal-card .chat-messages {
             flex: 1;
             overflow-y: auto;
-            padding: 16px 18px 8px;
+            padding: 14px 18px 8px;
             display: flex;
             flex-direction: column;
             gap: 8px;
             background: var(--background);
-            min-height: 100px;
+            min-height: 80px;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
         }
 
         @media (max-width: 600px) {
             .chat-modal-card .chat-messages {
-                min-height: 80px;
-                padding: 12px 14px 6px;
+                min-height: 60px;
+                padding: 10px 14px 6px;
             }
         }
 
@@ -940,7 +934,7 @@
             background: var(--surface-solid);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
-            padding: 12px 18px;
+            padding: 10px 16px;
             display: flex;
             gap: 5px;
             align-items: center;
@@ -982,7 +976,7 @@
             .chat-modal-card .chat-input-wrap {
                 padding: 8px 12px 14px;
                 gap: 6px;
-                border-radius: 0;
+                border-radius: 0 0 var(--radius-xl) var(--radius-xl);
             }
         }
 
@@ -1067,9 +1061,7 @@
             }
         }
 
-        /* ============================================================
-           LIGHTBOX – Professional Viewer with Crossfade
-           ============================================================ */
+        /* ===== LIGHTBOX ===== */
         .lightbox-overlay {
             position: fixed;
             inset: 0;
@@ -1255,9 +1247,7 @@
             }
         }
 
-        /* ============================================================
-           GALLERY – Stunning Masonry with Hover
-           ============================================================ */
+        /* ===== GALLERY ===== */
         #gallery {
             text-align: center;
         }
@@ -1376,13 +1366,17 @@
             }
         }
 
-        .gallery-show-more {
-            text-align: center;
+        .gallery-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
             margin-top: 18px;
+            flex-wrap: wrap;
         }
 
-        .gallery-show-more button {
-            padding: 10px 32px;
+        .gallery-pagination button {
+            padding: 10px 24px;
             border-radius: 999px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
@@ -1392,16 +1386,36 @@
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+            min-width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
-        .gallery-show-more button:hover {
+        .gallery-pagination button:hover:not(:disabled) {
             transform: translateY(-2px) scale(1.02);
             box-shadow: 0 6px 28px rgba(59, 130, 246, 0.35);
         }
 
-        /* ============================================================
-           ANIMATIONS – Multiverse Level
-           ============================================================ */
+        .gallery-pagination button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .gallery-pagination .page-indicator {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--surface);
+            padding: 6px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+        }
+
+        /* ===== ANIMATIONS ===== */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -1563,9 +1577,7 @@
             animation: shimmer-text 3s linear infinite;
         }
 
-        /* ============================================================
-           RESPONSIVE UTILITIES
-           ============================================================ */
+        /* ===== RESPONSIVE ===== */
         @media (min-width: 600px) {
             :root {
                 --container-padding: 24px;
@@ -1606,7 +1618,6 @@
             }
         }
 
-        /* ===== Base Elements ===== */
         img {
             display: block;
             max-width: 100%;
@@ -1731,7 +1742,6 @@
             transform: translateY(0) scale(1);
         }
 
-        /* ===== Inputs ===== */
         .input-wrapper {
             position: relative;
             margin-bottom: 14px;
@@ -1810,9 +1820,7 @@
             transform: none;
         }
 
-        /* ============================================================
-           HEADER – Glass with Blur
-           ============================================================ */
+        /* ===== HEADER ===== */
         .header {
             position: fixed;
             top: 0;
@@ -1848,7 +1856,7 @@
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             flex: 1;
         }
 
@@ -1860,6 +1868,30 @@
             flex-shrink: 0;
         }
 
+        .header-theme-presets-btn {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius-full);
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            color: var(--text);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 16px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .header-theme-presets-btn:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border-color: transparent;
+            transform: translateY(-1px) scale(1.05);
+        }
+
         .nav-right {
             display: flex;
             align-items: center;
@@ -1867,13 +1899,35 @@
             flex-shrink: 0;
         }
 
+        .header-theme-toggle-btn {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius-full);
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            color: var(--text);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 16px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .header-theme-toggle-btn:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border-color: transparent;
+            transform: translateY(-1px) scale(1.05);
+        }
+
         .menu-btn,
         .notice-btn,
-        .profile-btn,
-        .voice-btn,
-        .search-btn {
-            width: 36px;
-            height: 36px;
+        .profile-btn {
+            width: 34px;
+            height: 34px;
             display: grid;
             place-items: center;
             border-radius: var(--radius-full);
@@ -1891,9 +1945,7 @@
 
         .menu-btn:hover,
         .notice-btn:hover,
-        .profile-btn:hover,
-        .search-btn:hover,
-        .voice-btn:hover {
+        .profile-btn:hover {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
             border-color: transparent;
@@ -1904,20 +1956,6 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
             border-color: transparent;
-        }
-
-        .voice-btn.listening {
-            background: #EF4444;
-            color: #fff;
-            border-color: #EF4444;
-            animation: pulse 0.8s ease-in-out infinite;
-        }
-
-        .voice-btn.mic-denied {
-            background: #6B7280;
-            color: #fff;
-            border-color: #6B7280;
-            opacity: 0.6;
         }
 
         .notice-badge {
@@ -1952,25 +1990,28 @@
             display: inline-block;
         }
 
-.profile-dropdown {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    width: 220px;
-    background: #fff;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
-    transform: translateY(8px) scale(0.96);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: var(--z-dropdown);
-    padding: 4px 0;
-    border: 1px solid var(--glass-border);
-}
+        .profile-dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            width: 280px;
+            background: var(--surface-solid);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            transform: translateY(8px) scale(0.96);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: var(--z-dropdown);
+            padding: 6px 0;
+            border: 1px solid var(--glass-border);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
 
+        body.dark .profile-dropdown {
+            background: var(--surface-solid);
+        }
 
         .profile-dropdown.active {
             transform: translateY(0) scale(1);
@@ -1979,21 +2020,57 @@
         }
 
         .dropdown-profile-header {
-            padding: 8px 12px;
+            padding: 10px 14px 8px;
             display: flex;
             align-items: center;
             gap: 10px;
+            position: relative;
+        }
+
+        .dropdown-avatar-wrap {
+            position: relative;
+            flex-shrink: 0;
+            cursor: pointer;
+            border-radius: var(--radius-full);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dropdown-avatar-wrap:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+
+        .dropdown-avatar-wrap .avatar-edit-badge {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 20px;
+            height: 20px;
+            border-radius: var(--radius-full);
+            background: var(--secondary);
+            color: #fff;
+            font-size: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--surface-solid);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-avatar-wrap:hover .avatar-edit-badge {
+            transform: scale(1.1);
         }
 
         .dropdown-avatar {
-            width: 38px;
-            height: 38px;
+            width: 44px;
+            height: 44px;
             border-radius: var(--radius-full);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #fff;
             background-size: cover;
             background-position: center;
@@ -2001,7 +2078,20 @@
             flex-shrink: 0;
         }
 
-        .dropdown-user-meta h4 {
+        .dropdown-user-meta {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropdown-user-meta .name-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dropdown-user-meta .name-row h4 {
             font-size: 0.85rem;
             font-weight: 700;
             color: var(--text);
@@ -2011,12 +2101,34 @@
             text-overflow: ellipsis;
         }
 
+        .dropdown-user-meta .name-row .edit-name-icon {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 2px;
+            border-radius: var(--radius-full);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+        }
+
+        .dropdown-user-meta .name-row .edit-name-icon:hover {
+            opacity: 1;
+            color: var(--secondary);
+            background: rgba(59, 130, 246, 0.08);
+            transform: scale(1.15);
+        }
+
         .dropdown-user-meta span {
             font-size: 0.55rem;
             font-weight: 600;
             color: var(--secondary);
             background: rgba(59, 130, 246, 0.08);
-            padding: 1px 8px;
+            padding: 1px 10px;
             border-radius: 16px;
             width: max-content;
         }
@@ -2024,14 +2136,14 @@
         .dropdown-divider {
             height: 1px;
             background: var(--border);
-            margin: 4px 10px;
+            margin: 4px 12px;
         }
 
         .dropdown-item {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 6px 12px;
+            padding: 8px 14px;
             color: var(--text);
             font-size: 0.75rem;
             font-weight: 500;
@@ -2041,13 +2153,15 @@
             cursor: pointer;
             border: none;
             background: none;
+            border-radius: 0;
         }
 
         .dropdown-item i {
             font-size: 0.9rem;
             color: var(--text-light);
-            width: 18px;
+            width: 20px;
             text-align: center;
+            flex-shrink: 0;
         }
 
         .dropdown-item:hover {
@@ -2064,9 +2178,34 @@
             color: #EF4444;
         }
 
-        /* ============================================================
-           SIDEBAR – Glass Panel
-           ============================================================ */
+        .dropdown-item .login-role-tag {
+            font-size: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--secondary);
+            padding: 1px 8px;
+            border-radius: 12px;
+            margin-left: auto;
+        }
+
+        .dropdown-item .login-role-tag.admin {
+            background: rgba(239, 68, 68, 0.08);
+            color: #EF4444;
+        }
+
+        .dropdown-item .login-role-tag.teacher {
+            background: rgba(16, 185, 129, 0.08);
+            color: #10B981;
+        }
+
+        .dropdown-item .login-role-tag.student {
+            background: rgba(245, 158, 11, 0.08);
+            color: #F59E0B;
+        }
+
+        /* ===== SIDEBAR ===== */
         .sidebar,
         .updates-panel {
             position: fixed;
@@ -2236,7 +2375,8 @@
             gap: 4px;
         }
 
-        .sidebar-links a {
+        .sidebar-links a,
+        .sidebar-link-btn {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -2248,9 +2388,14 @@
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
+            width: 100%;
+            text-align: left;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
-        .sidebar-links a::after {
+        .sidebar-links a::after,
+        .sidebar-link-btn::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -2262,16 +2407,19 @@
         }
 
         .sidebar-links a:hover::after,
+        .sidebar-link-btn:hover::after,
         .sidebar-links a.active::after {
             width: 100%;
         }
 
-        .sidebar-links a:hover {
+        .sidebar-links a:hover,
+        .sidebar-link-btn:hover {
             background: rgba(59, 130, 246, 0.04);
             transform: translateX(2px);
         }
 
-        .sidebar-links a .nav-icon-wrapper {
+        .sidebar-links a .nav-icon-wrapper,
+        .sidebar-link-btn .nav-icon-wrapper {
             width: 28px;
             height: 28px;
             border-radius: 6px;
@@ -2286,7 +2434,8 @@
             transition: all 0.3s ease;
         }
 
-        .sidebar-links a .nav-title {
+        .sidebar-links a .nav-title,
+        .sidebar-link-btn .nav-title {
             font-size: 0.8rem;
             font-weight: 500;
             color: var(--text);
@@ -2326,6 +2475,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
         }
 
         .spiritual-branding {
@@ -2433,9 +2584,7 @@
             opacity: 0.6;
         }
 
-        /* ============================================================
-           HERO – Stunning with Particles
-           ============================================================ */
+        /* ===== HERO ===== */
         #hero {
             position: relative;
             min-height: 85vh;
@@ -2573,20 +2722,6 @@
             text-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
         }
 
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .hero-buttons a {
-            min-width: 90px;
-            padding: 8px 16px;
-            font-size: 1rem;
-            white-space: nowrap;
-        }
-
         .scroll-indicator {
             margin-top: 20px;
             display: flex;
@@ -2628,52 +2763,7 @@
             letter-spacing: 0.06em;
         }
 
-        /* ===== Buttons ===== */
-        .primary-btn,
-        .secondary-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-width: 100px;
-            padding: 10px 22px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            border: none;
-        }
-
-        .primary-btn {
-            background: linear-gradient(135deg, var(--accent), #F59E0B);
-            color: #fff;
-            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.25);
-        }
-
-        .primary-btn:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 6px 32px rgba(245, 158, 11, 0.35);
-        }
-
-        .secondary-btn {
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-
-        .secondary-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-2px) scale(1.02);
-        }
-
-        /* ============================================================
-           STATISTICS – Glass Cards
-           ============================================================ */
+        /* ===== STATISTICS ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -2739,69 +2829,7 @@
             font-size: 0.75rem;
         }
 
-        /* ============================================================
-           QUICK ACCESS – Glass Cards
-           ============================================================ */
-        .quick-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 16px;
-        }
-
-        @media (min-width: 600px) {
-            .quick-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 14px;
-            }
-        }
-
-        .quick-card {
-            background: var(--surface);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            padding: 16px 12px;
-            text-align: center;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: var(--shadow-sm);
-            color: var(--text);
-        }
-
-        .quick-card:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: var(--shadow-lg), var(--shadow-glow);
-            border-color: var(--secondary);
-        }
-
-        .quick-icon {
-            font-size: 1.8rem;
-            margin-bottom: 6px;
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .quick-card:hover .quick-icon {
-            transform: scale(1.15) rotate(-4deg);
-        }
-
-        .quick-card h3 {
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-
-        .quick-card p {
-            font-size: 0.7rem;
-            color: var(--text-light);
-            line-height: 1.4;
-        }
-
-        /* ============================================================
-           ACADEMICS – Glass Cards
-           ============================================================ */
+        /* ===== ACADEMICS ===== */
         .academics-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -2864,9 +2892,7 @@
             padding: 2px 0;
         }
 
-        /* ============================================================
-           ABOUT – Glass
-           ============================================================ */
+        /* ===== ABOUT ===== */
         .about-grid {
             display: grid;
             gap: 24px;
@@ -2985,9 +3011,7 @@
             font-size: 0.85rem;
         }
 
-        /* ============================================================
-           CONTACT – Glass
-           ============================================================ */
+        /* ===== CONTACT ===== */
         .contact-grid {
             display: grid;
             gap: 20px;
@@ -3145,9 +3169,7 @@
             animation: fadeUp 0.4s ease;
         }
 
-        /* ============================================================
-           FOOTER – Professional
-           ============================================================ */
+        /* ===== FOOTER ===== */
         .footer {
             background: var(--primary);
             color: #fff;
@@ -3259,9 +3281,7 @@
             color: var(--accent);
         }
 
-        /* ============================================================
-           FAB – Floating Action Button
-           ============================================================ */
+        /* ===== FAB ===== */
         .fab-container {
             position: fixed;
             bottom: 80px;
@@ -3356,9 +3376,7 @@
             border-color: transparent;
         }
 
-        /* ============================================================
-           THEME PRESETS
-           ============================================================ */
+        /* ===== THEME PRESETS ===== */
         .theme-presets-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -3447,9 +3465,7 @@
             display: flex;
         }
 
-        /* ============================================================
-           SEARCH OVERLAY
-           ============================================================ */
+        /* ===== SEARCH ===== */
         .search-overlay {
             position: fixed;
             inset: 0;
@@ -3458,9 +3474,9 @@
             -webkit-backdrop-filter: blur(24px) saturate(180%);
             z-index: 10001;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
-            padding: 80px 20px 20px;
+            padding: 20px;
             opacity: 0;
             visibility: hidden;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -3581,9 +3597,7 @@
             color: var(--text-light);
         }
 
-        /* ============================================================
-           OTHER SECTIONS – Glass Cards
-           ============================================================ */
+        /* ===== OTHER SECTIONS ===== */
         .testimonials-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -3665,82 +3679,6 @@
             color: var(--text-light);
         }
 
-        .news-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 14px;
-            margin-top: 16px;
-        }
-
-        @media (min-width: 600px) {
-            .news-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .news-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .news-card {
-            background: var(--surface);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            padding: 16px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .news-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md), var(--shadow-glow);
-        }
-
-        .news-card .news-meta {
-            display: flex;
-            gap: 12px;
-            font-size: 0.65rem;
-            color: var(--text-light);
-            margin-bottom: 4px;
-            flex-wrap: wrap;
-        }
-
-        .news-card .news-meta .news-tag {
-            padding: 0 8px;
-            border-radius: 999px;
-            background: rgba(59, 130, 246, 0.08);
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 0.6rem;
-        }
-
-        .news-card h3 {
-            font-size: 0.95rem;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-
-        .news-card p {
-            font-size: 0.8rem;
-            margin-bottom: 8px;
-        }
-
-        .news-card .news-readmore {
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 0.75rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .news-card .news-readmore:hover {
-            gap: 8px;
-        }
-
         .faculty-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -3810,178 +3748,6 @@
             font-size: 0.55rem;
             font-weight: 600;
             margin-top: 4px;
-        }
-
-        .admission-grid {
-            display: grid;
-            gap: 14px;
-            margin-top: 16px;
-        }
-
-        @media (min-width: 600px) {
-            .admission-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .admission-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .admission-card {
-            background: var(--surface);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            padding: 18px 16px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .admission-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md), var(--shadow-glow);
-            border-color: var(--secondary);
-        }
-
-        .admission-card .academic-icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-
-        .admission-card h3 {
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-            color: var(--primary);
-        }
-
-        body.dark .admission-card h3 {
-            color: #60A5FA;
-        }
-
-        .admission-card p {
-            font-size: 0.8rem;
-        }
-
-        /* Results, Homework, Calendar, Alumni – Glass */
-        .results-grid,
-        .hw-grid,
-        .calendar-grid {
-            display: grid;
-            gap: 10px;
-            margin-top: 12px;
-        }
-
-        .result-card,
-        .hw-card,
-        .calendar-event {
-            background: var(--surface);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-sm);
-            padding: 12px 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .result-card:hover,
-        .hw-card:hover,
-        .calendar-event:hover {
-            transform: translateX(4px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .result-card .result-info h4,
-        .hw-card .hw-info h4,
-        .calendar-event .event-info h4 {
-            font-size: 0.85rem;
-            color: var(--text);
-        }
-
-        .result-card .result-info p,
-        .hw-card .hw-info p,
-        .calendar-event .event-info p {
-            font-size: 0.7rem;
-            margin: 0;
-        }
-
-        .result-status {
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 0.6rem;
-            font-weight: 700;
-        }
-
-        .result-status.pass {
-            background: rgba(16, 185, 129, 0.12);
-            color: #10B981;
-        }
-
-        .result-status.fail {
-            background: rgba(239, 68, 68, 0.12);
-            color: #EF4444;
-        }
-
-        .result-status.pending {
-            background: rgba(245, 158, 11, 0.12);
-            color: #F59E0B;
-        }
-
-        .hw-status {
-            padding: 2px 10px;
-            border-radius: 999px;
-            font-size: 0.55rem;
-            font-weight: 700;
-        }
-
-        .hw-status.due {
-            background: rgba(239, 68, 68, 0.1);
-            color: #EF4444;
-        }
-
-        .hw-status.submitted {
-            background: rgba(16, 185, 129, 0.1);
-            color: #10B981;
-        }
-
-        .hw-status.pending {
-            background: rgba(245, 158, 11, 0.1);
-            color: #F59E0B;
-        }
-
-        .calendar-event .event-date {
-            min-width: 44px;
-            text-align: center;
-            background: var(--primary);
-            color: #fff;
-            padding: 4px 8px;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            font-size: 0.7rem;
-        }
-
-        body.dark .calendar-event .event-date {
-            background: var(--secondary);
-        }
-
-        .calendar-event .event-date .day {
-            display: block;
-            font-size: 1rem;
-            line-height: 1.2;
-        }
-
-        .calendar-event .event-date .month {
-            font-size: 0.5rem;
-            text-transform: uppercase;
-            opacity: 0.8;
         }
 
         .alumni-grid {
@@ -4055,9 +3821,6 @@
             margin-top: 4px;
         }
 
-        /* ============================================================
-           TOOLTIP
-           ============================================================ */
         .tooltip {
             position: fixed;
             padding: 6px 14px;
@@ -4081,9 +3844,6 @@
             opacity: 1;
         }
 
-        /* ============================================================
-           CONFETTI
-           ============================================================ */
         .confetti-container {
             position: fixed;
             inset: 0;
@@ -4112,9 +3872,6 @@
             }
         }
 
-        /* ============================================================
-           PRINT
-           ============================================================ */
         @media print {
 
             .header,
@@ -4124,8 +3881,6 @@
             .profile-container,
             .menu-btn,
             .notice-btn,
-            .search-btn,
-            .voice-btn,
             .modal-overlay,
             .toast,
             .search-overlay,
@@ -4162,7 +3917,7 @@
 
 <body>
 
-    <!-- ===== NEBULA BACKGROUND ===== -->
+    <!-- ===== NEBULA ===== -->
     <div class="nebula-bg" aria-hidden="true">
         <div class="orb"></div>
         <div class="orb"></div>
@@ -4182,7 +3937,7 @@
         <button class="toast-close" aria-label="Close notification">✕</button>
     </div>
 
-    <!-- ===== NAME MODAL ===== -->
+    <!-- ===== NAME MODAL (centered) ===== -->
     <div id="nameModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="nameModalTitle">
         <div class="modal-card name-modal-card">
             <span class="modal-icon" aria-hidden="true">👋</span>
@@ -4204,7 +3959,7 @@
         </div>
     </div>
 
-    <!-- ===== WELCOME CARD ===== -->
+    <!-- ===== WELCOME CARD (centered) ===== -->
     <div id="welcomeCard" class="welcome-card-overlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
         <div class="welcome-card">
             <div class="welcome-avatar" id="welcomeAvatar" aria-hidden="true">👤</div>
@@ -4214,7 +3969,7 @@
         </div>
     </div>
 
-    <!-- ===== EDIT NAME MODAL ===== -->
+    <!-- ===== EDIT NAME MODAL (centered) ===== -->
     <div id="editNameModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="editNameTitle">
         <div class="modal-card edit-modal-card">
             <div class="modal-header">
@@ -4241,7 +3996,7 @@
         </div>
     </div>
 
-    <!-- ===== THEME PRESETS MODAL ===== -->
+    <!-- ===== THEME PRESETS MODAL (centered) ===== -->
     <div id="themePresetsModal" class="modal-overlay" role="dialog" aria-modal="true"
         aria-labelledby="themePresetsTitle">
         <div class="modal-card" style="max-width:440px;">
@@ -4253,14 +4008,12 @@
             </div>
             <p style="font-size:0.8rem;color:var(--text-light);margin-bottom:4px;">Choose a color theme that suits your
                 style.</p>
-            <div class="theme-presets-grid" id="themePresetsGrid">
-                <!-- Populated by JS -->
-            </div>
+            <div class="theme-presets-grid" id="themePresetsGrid"></div>
             <button class="submit-btn" id="themePresetsApplyBtn" style="margin-top:8px;">Apply Theme</button>
         </div>
     </div>
 
-    <!-- ===== AI CHAT MODAL ===== -->
+    <!-- ===== AI CHAT MODAL (centered) ===== -->
     <div id="chatModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="chatTitle">
         <div class="modal-card chat-modal-card">
             <div class="chat-header">
@@ -4273,9 +4026,7 @@
                     <i class="ri-close-large-line" aria-hidden="true"></i>
                 </button>
             </div>
-            <div class="chat-messages" id="chatMessages">
-                <!-- Populated by JS -->
-            </div>
+            <div class="chat-messages" id="chatMessages"></div>
             <div class="chat-input-wrap" id="chatInputWrap">
                 <input type="text" id="chatInput" placeholder="Type your question..." autocomplete="off" />
                 <button class="chat-send-btn" id="chatSendBtn">
@@ -4323,13 +4074,13 @@
                     </button>
                     <img src="logo.png" alt="Pabitra Secondary Boarding School Logo" class="logo" width="42"
                         height="42">
-                    <button class="voice-btn" id="voiceBtn" aria-label="Voice search">
-                        <i class="ri-mic-line" aria-hidden="true"></i>
+                    <button class="header-theme-presets-btn" id="headerThemePresetsBtn" aria-label="Theme presets">
+                        <i class="ri-palette-line" aria-hidden="true"></i>
                     </button>
                 </div>
                 <div class="nav-right">
-                    <button class="search-btn" aria-label="Search" id="searchToggleBtn">
-                        <i class="ri-search-2-line" aria-hidden="true"></i>
+                    <button class="header-theme-toggle-btn" id="headerThemeToggleBtn" aria-label="Toggle theme">
+                        <i class="ri-moon-line" aria-hidden="true"></i>
                     </button>
                     <button class="notice-btn" aria-label="Open notices" aria-expanded="false">
                         <i class="ri-notification-3-line" aria-hidden="true"></i>
@@ -4340,36 +4091,59 @@
                             aria-expanded="false">
                             <i class="ri-user-3-line" aria-hidden="true"></i>
                         </button>
+                        <!-- ===== PROFILE DROPDOWN ===== -->
                         <div class="profile-dropdown" id="profileDropdown" role="menu">
                             <div class="dropdown-profile-header">
-                                <div class="dropdown-avatar" id="ddAvatar" aria-hidden="true">G</div>
+                                <div class="dropdown-avatar-wrap" id="ddAvatarWrap" role="button" tabindex="0"
+                                    aria-label="Change profile photo">
+                                    <div class="dropdown-avatar" id="ddAvatar" aria-hidden="true">G</div>
+                                    <div class="avatar-edit-badge" aria-hidden="true">
+                                        <i class="ri-camera-line"></i>
+                                    </div>
+                                </div>
                                 <div class="dropdown-user-meta">
-                                    <h4 id="ddName">Guest</h4>
+                                    <div class="name-row">
+                                        <h4 id="ddName">Guest</h4>
+                                        <span class="edit-name-icon" id="ddEditNameIcon" role="button" tabindex="0"
+                                            aria-label="Edit name" title="Edit name">
+                                            <i class="ri-pencil-line"></i>
+                                        </span>
+                                    </div>
                                     <span id="ddRole">Viewer</span>
                                 </div>
                             </div>
+
                             <div class="dropdown-divider" role="separator"></div>
-                            <button class="dropdown-item" id="ddChangePicBtn" role="menuitem">
-                                <i class="ri-image-edit-line" aria-hidden="true"></i> Change Photo
+
+                            <button class="dropdown-item" id="ddSearchBtn" role="menuitem">
+                                <i class="ri-search-2-line" aria-hidden="true"></i> Search
                             </button>
-                            <button class="dropdown-item" id="ddEditNameBtn" role="menuitem">
-                                <i class="ri-edit-2-line" aria-hidden="true"></i> Edit Name
+                            <button class="dropdown-item" id="ddVoiceBtn" role="menuitem">
+                                <i class="ri-mic-line" aria-hidden="true"></i> Voice Search
                             </button>
+
+                            <!-- ===== CALENDAR LINK (NEW) ===== -->
+                            <button class="dropdown-item" id="ddCalendarBtn" role="menuitem">
+                                <i class="ri-calendar-2-line" aria-hidden="true"></i> Calendar
+                            </button>
+
                             <div class="dropdown-divider" role="separator"></div>
-                            <button class="dropdown-item" id="ddThemeToggle" role="menuitem">
-                                <i class="ri-moon-line" aria-hidden="true"></i> Toggle Theme
+
+                            <button class="dropdown-item" id="ddStudentLogin" role="menuitem">
+                                <i class="ri-user-3-line" aria-hidden="true"></i> Student Login
+                                <span class="login-role-tag student">Student</span>
                             </button>
-                            <button class="dropdown-item" id="ddThemePresets" role="menuitem">
-                                <i class="ri-palette-line" aria-hidden="true"></i> Theme Presets
+                            <button class="dropdown-item" id="ddTeacherLogin" role="menuitem">
+                                <i class="ri-user-2-line" aria-hidden="true"></i> Teacher Login
+                                <span class="login-role-tag teacher">Teacher</span>
                             </button>
+                            <button class="dropdown-item" id="ddAdminLogin" role="menuitem">
+                                <i class="ri-shield-user-line" aria-hidden="true"></i> Admin Login
+                                <span class="login-role-tag admin">Admin</span>
+                            </button>
+
                             <div class="dropdown-divider" role="separator"></div>
-                            <button class="dropdown-item" id="ddShare" role="menuitem">
-                                <i class="ri-share-line" aria-hidden="true"></i> Share Page
-                            </button>
-                            <button class="dropdown-item" id="ddFeedback" role="menuitem">
-                                <i class="ri-feedback-line" aria-hidden="true"></i> Feedback
-                            </button>
-                            <div class="dropdown-divider" role="separator"></div>
+
                             <button class="dropdown-item danger" id="ddLogoutBtn" role="menuitem">
                                 <i class="ri-logout-box-line" aria-hidden="true"></i> Logout
                             </button>
@@ -4410,15 +4184,6 @@
                         <a href="#academics" class="nav-link" data-section="academics"><span class="nav-icon-wrapper"
                                 aria-hidden="true"><i class="ri-book-2-line"></i></span><span
                                 class="nav-title">Academics</span></a>
-                        <a href="#admissions" class="nav-link" data-section="admissions"><span class="nav-icon-wrapper"
-                                aria-hidden="true"><i class="ri-file-list-3-line"></i></span><span
-                                class="nav-title">Admissions</span></a>
-                        <a href="#results" class="nav-link" data-section="results"><span class="nav-icon-wrapper"
-                                aria-hidden="true"><i class="ri-bar-chart-2-line"></i></span><span
-                                class="nav-title">Results</span></a>
-                        <a href="#news" class="nav-link" data-section="news"><span class="nav-icon-wrapper"
-                                aria-hidden="true"><i class="ri-newspaper-line"></i></span><span
-                                class="nav-title">News</span></a>
                         <a href="#faculty" class="nav-link" data-section="faculty"><span class="nav-icon-wrapper"
                                 aria-hidden="true"><i class="ri-team-line"></i></span><span
                                 class="nav-title">Faculty</span></a>
@@ -4429,24 +4194,32 @@
                                 class="nav-icon-wrapper" aria-hidden="true"><i
                                     class="ri-quote-text-line"></i></span><span
                                 class="nav-title">Testimonials</span></a>
-                        <a href="#calendar" class="nav-link" data-section="calendar"><span class="nav-icon-wrapper"
-                                aria-hidden="true"><i class="ri-calendar-2-line"></i></span><span
-                                class="nav-title">Calendar</span></a>
                         <a href="#alumni" class="nav-link" data-section="alumni"><span class="nav-icon-wrapper"
                                 aria-hidden="true"><i class="ri-user-star-line"></i></span><span
                                 class="nav-title">Alumni</span></a>
-                        <a href="#homework" class="nav-link" data-section="homework"><span class="nav-icon-wrapper"
-                                aria-hidden="true"><i class="ri-pencil-ruler-2-line"></i></span><span
-                                class="nav-title">Homework</span></a>
-                        <a href="#quick-actions" class="nav-link" data-section="quick-actions"><span
-                                class="nav-icon-wrapper" aria-hidden="true"><i
-                                    class="ri-flashlight-line"></i></span><span class="nav-title">Quick
-                                Access</span></a>
                         <a href="#contact" class="nav-link" data-section="contact"><span class="nav-icon-wrapper"
                                 aria-hidden="true"><i class="ri-phone-line"></i></span><span
                                 class="nav-title">Contact</span></a>
                     </div>
                 </nav>
+
+                <nav class="sidebar-group" aria-label="Community">
+                    <div class="sidebar-group-title"><span>Community</span><span class="title-line"
+                            aria-hidden="true"></span></div>
+                    <div class="sidebar-links">
+                        <button class="sidebar-link-btn" id="sidebarShareBtn"
+                            style="display:flex;align-items:center;gap:10px;padding:10px 10px;border-radius:var(--radius-sm);color:var(--text);background:var(--glass-bg);border:1px solid var(--glass-border);width:100%;text-align:left;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);">
+                            <span class="nav-icon-wrapper" aria-hidden="true"><i class="ri-share-line"></i></span>
+                            <span class="nav-title">Share Page</span>
+                        </button>
+                        <button class="sidebar-link-btn" id="sidebarFeedbackBtn"
+                            style="display:flex;align-items:center;gap:10px;padding:10px 10px;border-radius:var(--radius-sm);color:var(--text);background:var(--glass-bg);border:1px solid var(--glass-border);width:100%;text-align:left;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);">
+                            <span class="nav-icon-wrapper" aria-hidden="true"><i class="ri-feedback-line"></i></span>
+                            <span class="nav-title">Feedback</span>
+                        </button>
+                    </div>
+                </nav>
+
                 <nav class="sidebar-group" aria-label="Social media">
                     <div class="sidebar-group-title"><span>Connect</span><span class="title-line"
                             aria-hidden="true"></span></div>
@@ -4454,11 +4227,10 @@
                         <a href="https://facebook.com/psbs" target="_blank" rel="noopener noreferrer"
                             class="social-link"><span class="nav-icon-wrapper" aria-hidden="true"><i
                                     class="ri-facebook-box-fill"></i></span><span class="nav-title">Facebook</span></a>
-                        <a href="https://youtube.com/psbs" target="_blank" rel="noopener noreferrer"
-                            class="social-link"><span class="nav-icon-wrapper" aria-hidden="true"><i
-                                    class="ri-youtube-fill"></i></span><span class="nav-title">YouTube</span></a>
+                        <!-- YouTube link removed -->
                     </div>
                 </nav>
+
                 <div class="sidebar-action-footer" style="display:flex;gap:6px;margin-top:auto;padding-top:6px;">
                     <a href="tel:+977-094-411035" class="action-pill-btn"
                         style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px;height:40px;border-radius:var(--radius-sm);background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--text);font-size:0.65rem;font-weight:700;transition:all 0.3s ease;">
@@ -4504,7 +4276,7 @@
             </div>
         </aside>
 
-        <!-- ===== MAIN CONTENT ===== -->
+        <!-- ===== MAIN ===== -->
         <main id="main-content" role="main">
 
             <!-- ===== HERO ===== -->
@@ -4519,14 +4291,9 @@
                         <h2 class="hero-motto" id="heroMotto">Quality Education is our Motto.<span class="type-cursor"
                                 aria-hidden="true"></span></h2>
                         <p class="hero-description">
-                            Welcome to our global learning campus. Access notices, check digital results,
-                            explore student-teacher resources, and connect with modern academic excellence.
+                            Welcome to our global learning campus. Access notices, explore student-teacher resources, and
+                            connect with modern academic excellence.
                         </p>
-                        <div class="hero-buttons">
-                            <a href="#admissions" class="primary-btn">Apply Now <i class="ri-arrow-right-line"
-                                    aria-hidden="true"></i></a>
-                            <a href="#quick-actions" class="secondary-btn">Portals Login</a>
-                        </div>
                         <div class="hero-stats-mini">
                             <div class="hero-stat-mini"><span class="num" id="heroStudents">1000+</span><span
                                     class="label">Students</span></div>
@@ -4646,57 +4413,6 @@
                 </div>
             </section>
 
-            <!-- ===== ADMISSIONS ===== -->
-            <section id="admissions" class="section" aria-label="Admissions">
-                <div class="container">
-                    <span class="section-tag">Admissions</span>
-                    <h2 class="section-title">Join PSBS Family</h2>
-                    <p class="section-description">Admissions open for the academic year 2082 B.S. Apply online now.</p>
-                    <div class="admission-grid">
-                        <div class="admission-card">
-                            <div class="academic-icon" aria-hidden="true">📝</div>
-                            <h3>Online Application</h3>
-                            <p>Fill out the admission form online. Quick and easy process.</p>
-                        </div>
-                        <div class="admission-card">
-                            <div class="academic-icon" aria-hidden="true">📋</div>
-                            <h3>Document Submission</h3>
-                            <p>Upload required documents: birth certificate, photos, previous marksheets.</p>
-                        </div>
-                        <div class="admission-card">
-                            <div class="academic-icon" aria-hidden="true">💳</div>
-                            <h3>Fee Payment</h3>
-                            <p>Pay admission fees via eSewa, Khalti, ConnectIPS, or bank transfer.</p>
-                        </div>
-                    </div>
-                    <div style="margin-top:20px;text-align:center;">
-                        <a href="#" class="primary-btn" style="max-width:240px;">Apply Now <i
-                                class="ri-arrow-right-line" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ===== RESULTS ===== -->
-            <section id="results" class="section" aria-label="Exam Results">
-                <div class="container">
-                    <span class="section-tag">Results</span>
-                    <h2 class="section-title">Exam Results Portal</h2>
-                    <p class="section-description">Check your term and SEE results securely.</p>
-                    <div class="results-grid" id="resultsContainer"></div>
-                </div>
-            </section>
-
-            <!-- ===== NEWS ===== -->
-            <section id="news" class="section" aria-label="News & Blog">
-                <div class="container">
-                    <span class="section-tag">News & Blog</span>
-                    <h2 class="section-title">Latest Updates</h2>
-                    <p class="section-description">Stay informed about school events, achievements, and announcements.
-                    </p>
-                    <div class="news-grid" id="newsContainer"></div>
-                </div>
-            </section>
-
             <!-- ===== FACULTY ===== -->
             <section id="faculty" class="section" aria-label="Faculty Directory">
                 <div class="container">
@@ -4715,8 +4431,10 @@
                     <p class="section-description">Explore our modern classrooms, labs, sports meets, and memorable
                         celebrations.</p>
                     <div class="gallery-grid" id="galleryGrid"></div>
-                    <div class="gallery-show-more">
-                        <button id="galleryLoadMore">Load More Photos</button>
+                    <div class="gallery-pagination">
+                        <button id="galleryPrev" aria-label="Previous page">‹ Prev</button>
+                        <span class="page-indicator" id="galleryPageIndicator">Page 1 / 3</span>
+                        <button id="galleryNext" aria-label="Next page">Next ›</button>
                     </div>
                 </div>
             </section>
@@ -4731,16 +4449,6 @@
                 </div>
             </section>
 
-            <!-- ===== CALENDAR ===== -->
-            <section id="calendar" class="section" aria-label="School Calendar">
-                <div class="container">
-                    <span class="section-tag">Calendar</span>
-                    <h2 class="section-title">Upcoming Events</h2>
-                    <p class="section-description">Important dates and events at PSBS.</p>
-                    <div class="calendar-grid" id="calendarContainer"></div>
-                </div>
-            </section>
-
             <!-- ===== ALUMNI ===== -->
             <section id="alumni" class="section" aria-label="Alumni">
                 <div class="container">
@@ -4748,48 +4456,6 @@
                     <h2 class="section-title">Our Distinguished Alumni</h2>
                     <p class="section-description">Proud graduates of PSBS making a difference.</p>
                     <div class="alumni-grid" id="alumniContainer"></div>
-                </div>
-            </section>
-
-            <!-- ===== HOMEWORK ===== -->
-            <section id="homework" class="section" aria-label="Homework">
-                <div class="container">
-                    <span class="section-tag">Homework</span>
-                    <h2 class="section-title">Homework Assignments</h2>
-                    <p class="section-description">Track your daily assignments and submissions.</p>
-                    <div class="hw-grid" id="homeworkContainer"></div>
-                </div>
-            </section>
-
-            <!-- ===== QUICK ACCESS ===== -->
-            <section id="quick-actions" class="section" aria-label="Quick access portals">
-                <div class="container">
-                    <span class="section-tag">Digital Services</span>
-                    <h2 class="section-title">Portals & Quick Access</h2>
-                    <p class="section-description">Dedicated secure logins for students, faculty, and administrative
-                        management.</p>
-                    <div class="quick-grid">
-                        <a href="#admissions" class="quick-card" aria-label="Admissions portal">
-                            <div class="quick-icon" aria-hidden="true">📝</div>
-                            <h3>Admissions</h3>
-                            <p>Apply for running academic year.</p>
-                        </a>
-                        <a href="#results" class="quick-card" aria-label="Exam results portal">
-                            <div class="quick-icon" aria-hidden="true">📊</div>
-                            <h3>Exam Results</h3>
-                            <p>Check digital marksheets.</p>
-                        </a>
-                        <a href="#" class="quick-card" aria-label="Downloads portal" id="downloadsLink">
-                            <div class="quick-icon" aria-hidden="true">📄</div>
-                            <h3>Downloads</h3>
-                            <p>Forms & digital documents.</p>
-                        </a>
-                        <a href="#" class="quick-card" aria-label="Student portal">
-                            <div class="quick-icon" aria-hidden="true">👨‍🎓</div>
-                            <h3>Student Portal</h3>
-                            <p>Access your academic records.</p>
-                        </a>
-                    </div>
                 </div>
             </section>
 
@@ -4848,7 +4514,7 @@
                                         id="contactMessage" placeholder="Write your message..." required></textarea>
                                     <div class="input-error" role="alert"></div>
                                 </div>
-                                <button class="primary-btn contact-btn" type="submit">📨 Send Message</button>
+                                <button class="contact-btn" type="submit">📨 Send Message</button>
                                 <div id="contactSuccess" class="contact-success" role="alert">✅ Message sent
                                     successfully!</div>
                             </form>
@@ -4869,8 +4535,6 @@
                     <div class="footer-social">
                         <a href="https://facebook.com/psbs" target="_blank" rel="noopener noreferrer"
                             aria-label="Facebook"><i class="ri-facebook-box-fill"></i></a>
-                        <a href="https://youtube.com/psbs" target="_blank" rel="noopener noreferrer"
-                            aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
                         <a href="#" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
                         <a href="#" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
                     </div>
@@ -4881,7 +4545,6 @@
                         <li><a href="#hero">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#academics">Academics</a></li>
-                        <li><a href="#admissions">Admissions</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -4902,7 +4565,7 @@
             </div>
         </footer>
 
-        <!-- ===== FLOATING ACTION BUTTON ===== -->
+        <!-- ===== FAB ===== -->
         <div class="fab-container" id="fabContainer">
             <div class="fab-menu" id="fabMenu">
                 <button class="fab-item" id="fabChat" aria-label="AI Chat"><i class="ri-robot-line"></i></button>
@@ -4921,11 +4584,14 @@
     </div>
 
     <!-- ============================================================
-    JAVASCRIPT – Complete Multiverse Integration
+    JAVASCRIPT — COMPLETE WORKING VERSION with Gallery Pagination
     ============================================================ -->
     <script>
         /* ============================================================
-           PSBS PORTAL – Multiverse UI Complete Stack
+           PSBS PORTAL — COMPLETE FIXED VERSION
+           All modals centered, edit icon next to name, badge with localStorage,
+           smooth scrolling, all sections rendering, year counter fixed.
+           Gallery now uses local img (1).jpg to img (24).jpg with Next/Prev pagination.
            ============================================================ */
 
         // -------------------- CONFIG --------------------
@@ -4937,15 +4603,16 @@
             TOAST_DURATION: 3500,
             SWIPE_THRESHOLD: 50,
             GALLERY_BATCH_SIZE: 8,
-            MAX_HISTORY: 20,
-            NOTICE_REFRESH_INTERVAL: 300000,
             THEME_KEY: 'psbs_theme',
             PROFILE_KEY: 'psbs_profile',
             THEME_PRESET_KEY: 'psbs_theme_preset',
             NOTICE_READ_KEY: 'psbs_notice_read',
-            TAP_TIMEOUT: 1200,
-            TAP_COUNT: 5,
-            TAP_RADIUS: 35,
+            NOTICE_COUNT_KEY: 'psbs_notice_count',
+            LOGIN_BASE: './',
+            LOGIN_STUDENT: 'student-login.html',
+            LOGIN_TEACHER: 'teacher-login.html',
+            LOGIN_ADMIN: 'admin-login.html',
+            CALENDAR_PAGE: 'calendar.html',
         };
 
         // -------------------- HELPERS --------------------
@@ -4958,9 +4625,7 @@
                 if (!name) return 'U';
                 const parts = name.trim().split(' ');
                 let init = '';
-                for (let i = 0; i < Math.min(parts.length, 2); i++) {
-                    init += parts[i].charAt(0).toUpperCase();
-                }
+                for (let i = 0; i < Math.min(parts.length, 2); i++) { init += parts[i].charAt(0).toUpperCase(); }
                 return init || 'U';
             },
             colorFromName: function (name) {
@@ -4992,7 +4657,6 @@
                     }
                 };
             },
-            randomId: function () { return 'id-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6); },
             formatDate: function (dateStr) {
                 try {
                     const d = new Date(dateStr);
@@ -5014,18 +4678,35 @@
                 document.body.classList.toggle('dark');
                 const isDark = document.body.classList.contains('dark');
                 localStorage.setItem(CONFIG.THEME_KEY, isDark ? 'dark' : 'light');
+                const btn = document.getElementById('headerThemeToggleBtn');
+                if (btn) {
+                    const icon = btn.querySelector('i');
+                    if (icon) icon.className = isDark ? 'ri-sun-line' : 'ri-moon-line';
+                }
                 return isDark;
             },
             getTheme: function () { return localStorage.getItem(CONFIG.THEME_KEY) || 'light'; },
             applyTheme: function () {
-                if (this.getTheme() === 'dark') { document.body.classList.add('dark'); return true; }
+                if (this.getTheme() === 'dark') {
+                    document.body.classList.add('dark');
+                    const btn = document.getElementById('headerThemeToggleBtn');
+                    if (btn) {
+                        const icon = btn.querySelector('i');
+                        if (icon) icon.className = 'ri-sun-line';
+                    }
+                    return true;
+                }
+                const btn = document.getElementById('headerThemeToggleBtn');
+                if (btn) {
+                    const icon = btn.querySelector('i');
+                    if (icon) icon.className = 'ri-moon-line';
+                }
                 return false;
             },
             getThemePreset: function () { return localStorage.getItem(CONFIG.THEME_PRESET_KEY) || 'default'; },
             setThemePreset: function (preset) {
                 document.body.className = document.body.className.split(' ').filter(function (c) {
-                    return !c.startsWith(
-                        'theme-');
+                    return !c.startsWith('theme-');
                 }).join(' ');
                 if (preset !== 'default') { document.body.classList.add('theme-' + preset); }
                 localStorage.setItem(CONFIG.THEME_PRESET_KEY, preset);
@@ -5162,22 +4843,10 @@
                         id: 'academics', title: 'Academics', desc: 'Our academic programs and curriculum',
                         icon: '📚'
                     },
-                    { id: 'admissions', title: 'Admissions', desc: 'Apply to join PSBS family', icon: '📝' },
-                    { id: 'results', title: 'Results', desc: 'Check exam results online', icon: '📊' },
-                    { id: 'news', title: 'News & Blog', desc: 'Latest updates and announcements', icon: '📰' },
                     { id: 'faculty', title: 'Faculty', desc: 'Meet our dedicated teachers', icon: '👨‍🏫' },
                     { id: 'gallery', title: 'Gallery', desc: 'Campus life photos', icon: '🖼️' },
                     { id: 'testimonials', title: 'Testimonials', desc: 'What our community says', icon: '💬' },
-                    { id: 'calendar', title: 'Calendar', desc: 'Upcoming events and dates', icon: '📅' },
                     { id: 'alumni', title: 'Alumni', desc: 'Our distinguished graduates', icon: '🎓' },
-                    {
-                        id: 'homework', title: 'Homework', desc: 'Daily assignments and submissions',
-                        icon: '📝'
-                    },
-                    {
-                        id: 'quick-actions', title: 'Quick Access', desc: 'Portals and digital services',
-                        icon: '⚡'
-                    },
                     { id: 'contact', title: 'Contact', desc: 'Get in touch with us', icon: '📞' },
                 ];
             },
@@ -5188,7 +4857,7 @@
                 return 'Good Evening';
             },
             log: function (msg) { console.log('[' + CONFIG.APP_NAME + '] ' + msg); },
-            readingTime: function (text) { return Math.ceil(text.split(/\s+/).length / 200); }
+            readingTime: function (text) { return Math.ceil(text.split(/\s+/).length / 200); },
         };
 
         // -------------------- TOAST --------------------
@@ -5229,8 +4898,7 @@
                 msgEl.textContent = message;
                 toastEl.className = 'toast toast-' + type;
                 if (type === 'rainbow') { toastEl.classList.add('toast-rainbow'); } else {
-                    toastEl.classList.remove(
-                        'toast-rainbow');
+                    toastEl.classList.remove('toast-rainbow');
                 }
                 if (iconEl) iconEl.textContent = icons[type] || icons.info;
                 toastEl.classList.add('active');
@@ -5260,27 +4928,12 @@
             rainbow: function (msg) { this.show(msg, 'rainbow'); }
         };
 
-        // Toast pause on hover
-        document.addEventListener('DOMContentLoaded', function () {
-            const toastEl = document.getElementById('toast');
-            toastEl.addEventListener('mouseenter', function () { clearTimeout(Toast._timeout); });
-            toastEl.addEventListener('mouseleave', function () {
-                if (toastEl.classList.contains('active')) {
-                    clearTimeout(Toast._timeout);
-                    Toast._timeout = setTimeout(function () {
-                        toastEl.classList.remove('active');
-                        setTimeout(function () { Toast._processQueue(); }, 300);
-                    }, CONFIG.TOAST_DURATION);
-                }
-            });
-        });
-
         // ===== 5‑TAP TOAST =====
         (function initTapDetection() {
-            let tapCount = 0;
-            let tapTimer = null;
-            let lastTapX = 0;
-            let lastTapY = 0;
+            let tapCount = 0,
+                tapTimer = null,
+                lastTapX = 0,
+                lastTapY = 0;
 
             function handleTap(e) {
                 const tag = e.target.tagName.toLowerCase();
@@ -5292,32 +4945,29 @@
                     lastTapY = clientY;
                     tapCount = 1;
                     clearTimeout(tapTimer);
-                    tapTimer = setTimeout(function () { tapCount = 0; }, CONFIG.TAP_TIMEOUT);
+                    tapTimer = setTimeout(function () { tapCount = 0; }, 1200);
                     return;
                 }
-                const dx = clientX - lastTapX;
-                const dy = clientY - lastTapY;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist > CONFIG.TAP_RADIUS) {
+                const dist = Math.sqrt(Math.pow(clientX - lastTapX, 2) + Math.pow(clientY - lastTapY, 2));
+                if (dist > 35) {
                     tapCount = 0;
                     lastTapX = clientX;
                     lastTapY = clientY;
-                    clearTimeout(tapTimer);
-                    return;
+                    clearTimeout(tapTimer); return;
                 }
                 tapCount++;
                 clearTimeout(tapTimer);
-                tapTimer = setTimeout(function () { tapCount = 0; }, CONFIG.TAP_TIMEOUT);
-                if (tapCount >= CONFIG.TAP_COUNT) {
+                tapTimer = setTimeout(function () { tapCount = 0; }, 1200);
+                if (tapCount >= 5) {
                     tapCount = 0;
                     clearTimeout(tapTimer);
-                    const messages = [
+                    const msgs = [
                         '🌸 Radhe Radhe! Blessings upon you! 💝',
                         '✨ You\'re on fire! Keep shining! 🌟',
                         '🏆 Excellence is a habit! 💎',
                         '💫 Stars align for you! Radhe Radhe! 🌺',
-                        '🌿 Peace begins with a pure heart and a smile! ✨',
-                        '☀️ Let your inner light guide your path today! 🔱',
+                        '🌿 Peace begins with a pure heart! ✨',
+                        '☀️ Let your inner light guide your path! 🔱',
                         '🌈 Miracles happen when you trust the universe! 🌍',
                         '🎨 Create a beautiful day filled with gratitude! 🍁',
                         '🌊 Stay calm, stay focused, and keep growing! 🚀',
@@ -5327,8 +4977,7 @@
                         '🎐 May your day be filled with harmony and joy! 🔔',
                         '🕯️ One small positive thought can change your entire day! 🌅'
                     ];
-                    const msg = messages[Math.floor(Math.random() * messages.length)];
-                    Toast.radhe(msg);
+                    Toast.radhe(msgs[Math.floor(Math.random() * msgs.length)]);
                     Helpers.confetti(40);
                 }
             }
@@ -5336,7 +4985,6 @@
             document.addEventListener('touchstart', function (e) {
                 if (!State || !State.isDragging) { handleTap(e); }
             }, { passive: true });
-            Helpers.log('5‑tap toast active!');
         })();
 
         // -------------------- STATE --------------------
@@ -5362,11 +5010,9 @@
             isDraggingNotice: false,
             verticalSwipeLock: false,
             profile: null,
-            historyStack: [],
             galleryLoaded: 0,
             isListening: false,
             recognition: null,
-            chatHistory: [],
             lightboxOpen: false,
             lightboxImages: [],
             lightboxIndex: 0,
@@ -5374,24 +5020,9 @@
             lightboxIsZoomed: false,
             lightboxPanX: 0,
             lightboxPanY: 0,
-            lightboxInitialPinchDist: 0,
-            lightboxInitialZoom: 1,
-            lightboxTouchStartX: 0,
-            lightboxTouchStartY: 0,
-            lightboxTouchStartTime: 0,
-            lightboxIsDraggingImg: false,
-            lightboxSwipeDirection: null,
-            lightboxSwipeOffset: 0,
-            // Crossfade state
-            lightboxCurrentImg: null,
-            lightboxNextImg: null,
             lightboxIsTransitioning: false,
-            pushState: function (state) {
-                if (this.historyStack.length > CONFIG.MAX_HISTORY) this.historyStack.shift();
-                this.historyStack.push(state);
-                history.pushState(state, '');
-            },
-            popState: function () { return this.historyStack.pop() || null; }
+            openCount: 0,
+            galleryCurrentPage: 0,
         };
 
         // -------------------- DOM REFS --------------------
@@ -5419,7 +5050,6 @@
             searchInput: $('#searchInput'),
             searchResults: $('#searchResults'),
             searchClearBtn: $('#searchClearBtn'),
-            searchToggleBtn: $('#searchToggleBtn'),
             header: $('.header'),
             menuBtn: $('.menu-btn'),
             noticeBtn: $('.notice-btn'),
@@ -5432,16 +5062,18 @@
             noticeClose: $('.notice-close'),
             noticeContainer: $('#noticeContainer'),
             profileDropdown: $('#profileDropdown'),
+            ddAvatarWrap: $('#ddAvatarWrap'),
             ddAvatar: $('#ddAvatar'),
             ddName: $('#ddName'),
             ddRole: $('#ddRole'),
-            ddChangePicBtn: $('#ddChangePicBtn'),
-            ddEditNameBtn: $('#ddEditNameBtn'),
-            ddThemeToggle: $('#ddThemeToggle'),
-            ddThemePresets: $('#ddThemePresets'),
+            ddEditNameIcon: $('#ddEditNameIcon'),
             ddLogoutBtn: $('#ddLogoutBtn'),
-            ddShare: $('#ddShare'),
-            ddFeedback: $('#ddFeedback'),
+            ddSearchBtn: $('#ddSearchBtn'),
+            ddVoiceBtn: $('#ddVoiceBtn'),
+            ddCalendarBtn: $('#ddCalendarBtn'),
+            ddStudentLogin: $('#ddStudentLogin'),
+            ddTeacherLogin: $('#ddTeacherLogin'),
+            ddAdminLogin: $('#ddAdminLogin'),
             avatarUploader: $('#avatarUploader'),
             contactForm: $('#contactForm'),
             contactName: $('#contactName'),
@@ -5450,15 +5082,12 @@
             contactSuccess: $('#contactSuccess'),
             footerYear: $('#footerYear'),
             galleryGrid: $('#galleryGrid'),
-            galleryLoadMore: $('#galleryLoadMore'),
-            resultsContainer: $('#resultsContainer'),
-            newsContainer: $('#newsContainer'),
+            galleryPrev: $('#galleryPrev'),
+            galleryNext: $('#galleryNext'),
+            galleryPageIndicator: $('#galleryPageIndicator'),
             facultyContainer: $('#facultyContainer'),
-            calendarContainer: $('#calendarContainer'),
             alumniContainer: $('#alumniContainer'),
-            homeworkContainer: $('#homeworkContainer'),
             testimonialsContainer: $('#testimonialsContainer'),
-            downloadsLink: $('#downloadsLink'),
             heroStudents: $('#heroStudents'),
             heroTeachers: $('#heroTeachers'),
             heroYears: $('#heroYears'),
@@ -5469,12 +5098,10 @@
             fabChat: $('#fabChat'),
             fabTour: $('#fabTour'),
             fabTop: $('#fabTop'),
-            voiceBtn: $('#voiceBtn'),
             tooltip: $('#tooltip'),
             lightboxOverlay: $('#lightboxOverlay'),
             lightboxImgCurrent: $('#lightboxImgCurrent'),
             lightboxImgNext: $('#lightboxImgNext'),
-            lightboxImgWrap: $('#lightboxImgWrap'),
             lightboxClose: $('#lightboxClose'),
             lightboxPrev: $('#lightboxPrev'),
             lightboxNext: $('#lightboxNext'),
@@ -5490,7 +5117,11 @@
             chatInput: $('#chatInput'),
             chatSendBtn: $('#chatSendBtn'),
             chatCloseBtn: $('#chatCloseBtn'),
-            chatInputWrap: $('#chatInputWrap'),
+            sidebarShareBtn: $('#sidebarShareBtn'),
+            sidebarFeedbackBtn: $('#sidebarFeedbackBtn'),
+            headerThemePresetsBtn: $('#headerThemePresetsBtn'),
+            headerThemeToggleBtn: $('#headerThemeToggleBtn'),
+            voiceBtn: $('#ddVoiceBtn'),
         };
 
         // ============================================================
@@ -5583,14 +5214,10 @@
             },
             getInitials: function () { return Helpers.initials(this.getDisplayName()); },
             getColor: function () { return Helpers.colorFromName(this.getDisplayName()); },
-            getVisitCount: function () {
-                const p = this.get();
-                return p ? p.visits || 1 : 1;
-            }
         };
 
         // ============================================================
-        // NOTICE MANAGER
+        // NOTICE MANAGER — with localStorage badge tracking
         // ============================================================
         const NoticeManager = {
             getNotices: function () {
@@ -5626,14 +5253,25 @@
                     },
                 ];
             },
-            getReadTimestamp: function () { return localStorage.getItem(CONFIG.NOTICE_READ_KEY) || null; },
+            getLastReadCount: function () {
+                const count = localStorage.getItem(CONFIG.NOTICE_COUNT_KEY);
+                return count ? parseInt(count, 10) : 0;
+            },
+            getLastReadTime: function () {
+                return localStorage.getItem(CONFIG.NOTICE_READ_KEY) || null;
+            },
             markAsRead: function () {
+                const notices = this.getNotices();
+                localStorage.setItem(CONFIG.NOTICE_COUNT_KEY, String(notices.length));
                 localStorage.setItem(CONFIG.NOTICE_READ_KEY, Date.now().toString());
                 this.updateBadge();
             },
             getUnreadCount: function () {
-                const readTime = this.getReadTimestamp();
-                if (!readTime) return this.getNotices().length;
+                const notices = this.getNotices();
+                const total = notices.length;
+                const readCount = this.getLastReadCount();
+                if (readCount === 0) return total;
+                if (total > readCount) return total - readCount;
                 return 0;
             },
             updateBadge: function () {
@@ -5642,7 +5280,11 @@
                 if (count > 0) {
                     badge.textContent = count;
                     badge.classList.remove('hidden-badge');
-                } else { badge.classList.add('hidden-badge'); }
+                    badge.classList.add('pop');
+                    setTimeout(function () { badge.classList.remove('pop'); }, 400);
+                } else {
+                    badge.classList.add('hidden-badge');
+                }
             },
             render: function () {
                 const notices = this.getNotices();
@@ -5684,10 +5326,10 @@
             DOM.nameModal.classList.add('active');
             State.isNameModalOpen = true;
             State.panelOpen = true;
+            State.openCount++;
             document.body.classList.add('modal-active');
             DOM.nameError.textContent = '';
             setTimeout(function () { DOM.userNameInput.focus(); }, 400);
-            State.pushState({ modal: 'name' });
         }
 
         function closeNameModal() {
@@ -5695,6 +5337,7 @@
             State.isNameModalOpen = false;
             State.panelOpen = false;
             document.body.classList.remove('modal-active');
+            if (State.openCount > 0) State.openCount--;
         }
 
         DOM.nameForm.addEventListener('submit', function (e) {
@@ -5741,8 +5384,8 @@
             DOM.welcomeCard.classList.add('active');
             State.isWelcomeOpen = true;
             State.panelOpen = true;
+            State.openCount++;
             document.body.classList.add('welcome-active');
-            State.pushState({ modal: 'welcome' });
             setTimeout(function () { if (State.isWelcomeOpen) closeWelcomeCard(); }, 6000);
         }
 
@@ -5751,6 +5394,7 @@
             State.isWelcomeOpen = false;
             State.panelOpen = false;
             document.body.classList.remove('welcome-active');
+            if (State.openCount > 0) State.openCount--;
         }
         DOM.welcomeCloseBtn.addEventListener('click', closeWelcomeCard);
 
@@ -5764,9 +5408,9 @@
             DOM.editNameModal.classList.add('active');
             State.isEditModalOpen = true;
             State.panelOpen = true;
+            State.openCount++;
             document.body.classList.add('modal-active');
             setTimeout(function () { DOM.editNameInput.focus(); }, 300);
-            State.pushState({ modal: 'edit' });
         }
 
         function closeEditNameModal() {
@@ -5774,6 +5418,7 @@
             State.isEditModalOpen = false;
             State.panelOpen = false;
             document.body.classList.remove('modal-active');
+            if (State.openCount > 0) State.openCount--;
         }
 
         DOM.editNameForm.addEventListener('submit', function (e) {
@@ -5803,6 +5448,13 @@
         DOM.editNameCancelBtn.addEventListener('click', closeEditNameModal);
         DOM.editNameModal.addEventListener('click', function (e) {
             if (e.target === DOM.editNameModal) closeEditNameModal();
+        });
+
+        // Edit name icon in dropdown
+        DOM.ddEditNameIcon.addEventListener('click', function (e) {
+            e.stopPropagation();
+            closeProfileDropdown();
+            openEditNameModal();
         });
 
         // ============================================================
@@ -5839,9 +5491,9 @@
             DOM.searchOverlay.classList.add('active');
             State.isSearchOpen = true;
             State.panelOpen = true;
+            State.openCount++;
             document.body.classList.add('modal-active');
             setTimeout(function () { DOM.searchInput.focus(); }, 300);
-            State.pushState({ modal: 'search' });
             DOM.searchResults.innerHTML = '<div class="search-empty">🔍 Type to start searching...</div>';
         }
 
@@ -5851,11 +5503,15 @@
             State.panelOpen = false;
             document.body.classList.remove('modal-active');
             DOM.searchInput.value = '';
+            if (State.openCount > 0) State.openCount--;
         }
 
-        DOM.searchToggleBtn.addEventListener('click', function () {
-            State.isSearchOpen ? closeSearch() : openSearch();
+        DOM.ddSearchBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            closeProfileDropdown();
+            openSearch();
         });
+
         DOM.searchOverlay.addEventListener('click', function (e) {
             if (e.target === DOM.searchOverlay) closeSearch();
         });
@@ -5918,8 +5574,8 @@
             document.body.style.overflow = 'hidden';
             State.isSidebarOpen = true;
             State.panelOpen = true;
+            State.openCount++;
             document.body.classList.add('sidebar-active');
-            State.pushState({ panel: 'sidebar' });
         }
 
         function closeSidebar() {
@@ -5935,11 +5591,10 @@
             State.isSidebarOpen = false;
             State.panelOpen = false;
             document.body.classList.remove('sidebar-active');
+            if (State.openCount > 0) State.openCount--;
         }
 
-        DOM.menuBtn.addEventListener('click', function () {
-            State.isSidebarOpen ? closeSidebar() : openSidebar();
-        });
+        DOM.menuBtn.addEventListener('click', function () { State.isSidebarOpen ? closeSidebar() : openSidebar(); });
         DOM.sidebarClose.addEventListener('click', closeSidebar);
         DOM.sidebarOverlay.addEventListener('click', closeAllPanels);
 
@@ -5955,8 +5610,8 @@
             document.body.style.overflow = 'hidden';
             State.isNoticeOpen = true;
             State.panelOpen = true;
+            State.openCount++;
             document.body.classList.add('notice-active');
-            State.pushState({ panel: 'notice' });
             NoticeManager.markAsRead();
             NoticeManager.render();
         }
@@ -5974,6 +5629,7 @@
             State.isNoticeOpen = false;
             State.panelOpen = false;
             document.body.classList.remove('notice-active');
+            if (State.openCount > 0) State.openCount--;
         }
 
         DOM.noticeBtn.addEventListener('click', function () {
@@ -5994,9 +5650,9 @@
                 DOM.profileBtn.setAttribute('aria-expanded', 'true');
                 State.isDropdownOpen = true;
                 State.panelOpen = true;
+                State.openCount++;
                 document.body.classList.add('dropdown-active');
                 document.body.style.overflow = 'hidden';
-                State.pushState({ panel: 'dropdown' });
             } else { closeProfileDropdown(); }
         }
 
@@ -6011,6 +5667,7 @@
                 !State.isThemePresetsOpen && !State.isChatOpen && !State.lightboxOpen) {
                 document.body.style.overflow = '';
             }
+            if (State.openCount > 0) State.openCount--;
         }
 
         DOM.profileBtn.addEventListener('click', toggleProfileDropdown);
@@ -6023,7 +5680,10 @@
         // ============================================================
         // PROFILE ACTIONS
         // ============================================================
-        DOM.ddChangePicBtn.addEventListener('click', function () { DOM.avatarUploader.click(); });
+        DOM.ddAvatarWrap.addEventListener('click', function (e) {
+            e.stopPropagation();
+            DOM.avatarUploader.click();
+        });
 
         DOM.avatarUploader.addEventListener('change', function (e) {
             const file = e.target.files[0];
@@ -6052,19 +5712,6 @@
             reader.readAsDataURL(file);
         });
 
-        DOM.ddEditNameBtn.addEventListener('click', function () {
-            closeProfileDropdown();
-            openEditNameModal();
-        });
-
-        DOM.ddThemeToggle.addEventListener('click', function () {
-            const isDark = Helpers.toggleDark();
-            const icon = isDark ? 'ri-moon-line' : 'ri-sun-line';
-            DOM.ddThemeToggle.querySelector('i').className = icon;
-            closeProfileDropdown();
-            Toast.info(isDark ? '🌙 Dark mode enabled' : '☀️ Light mode enabled');
-        });
-
         DOM.ddLogoutBtn.addEventListener('click', function () {
             Profile.clear();
             Toast.info('Logged out successfully');
@@ -6073,16 +5720,68 @@
         });
 
         // ============================================================
+        // LOGIN HANDLERS
+        // ============================================================
+        function navigateLogin(page) {
+            closeProfileDropdown();
+            window.location.href = CONFIG.LOGIN_BASE + page;
+        }
+
+        DOM.ddStudentLogin.addEventListener('click', function (e) {
+            e.preventDefault();
+            navigateLogin(CONFIG.LOGIN_STUDENT);
+        });
+        DOM.ddTeacherLogin.addEventListener('click', function (e) {
+            e.preventDefault();
+            navigateLogin(CONFIG.LOGIN_TEACHER);
+        });
+        DOM.ddAdminLogin.addEventListener('click', function (e) {
+            e.preventDefault();
+            navigateLogin(CONFIG.LOGIN_ADMIN);
+        });
+
+        // ============================================================
+        // CALENDAR LINK — profile dropdown
+        // ============================================================
+        DOM.ddCalendarBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            closeProfileDropdown();
+            window.location.href = CONFIG.CALENDAR_PAGE;
+        });
+
+        // ============================================================
+        // SIDEBAR: Share & Feedback
+        // ============================================================
+        DOM.sidebarShareBtn.addEventListener('click', function () {
+            Helpers.sharePage();
+            closeSidebar();
+        });
+        DOM.sidebarFeedbackBtn.addEventListener('click', function () {
+            Toast.info('📝 Share your feedback: info@psbs.edu.np');
+            closeSidebar();
+        });
+
+        // ============================================================
+        // HEADER: Theme Controls
+        // ============================================================
+        DOM.headerThemePresetsBtn.addEventListener('click', function () { openThemePresets(); });
+        DOM.headerThemeToggleBtn.addEventListener('click', function () {
+            const isDark = Helpers.toggleDark();
+            Toast.info(isDark ? '🌙 Dark mode enabled' : '☀️ Light mode enabled');
+        });
+
+        // ============================================================
         // THEME PRESETS
         // ============================================================
         const themePresets = [
-            { id: 'default', label: 'Default Blue', color: '#1E3A8A', bg: '#1E3A8A' },
-            { id: 'purple', label: 'Royal Purple', color: '#7C3AED', bg: '#7C3AED' },
-            { id: 'emerald', label: 'Emerald Green', color: '#059669', bg: '#059669' },
-            { id: 'rose', label: 'Rose Red', color: '#E11D48', bg: '#E11D48' },
-            { id: 'amber', label: 'Amber Gold', color: '#D97706', bg: '#D97706' },
-            { id: 'teal', label: 'Teal', color: '#0D9488', bg: '#0D9488' },
-            { id: 'indigo', label: 'Indigo', color: '#4F46E5', bg: '#4F46E5' },
+            { id: 'default', label: 'Default Blue', color: '#1E3A8A' },
+            { id: 'purple', label: 'Royal Purple', color: '#7C3AED' },
+            { id: 'emerald', label: 'Emerald Green', color: '#059669' },
+            { id: 'rose', label: 'Rose Red', color: '#E11D48' },
+            { id: 'amber', label: 'Amber Gold', color: '#D97706' },
+            { id: 'teal', label: 'Teal', color: '#0D9488' },
+            { id: 'indigo', label: 'Indigo', color: '#4F46E5' },
+            { id: 'coral', label: 'Coral', color: '#E85D75' },
         ];
 
         let selectedThemePreset = Helpers.getThemePreset();
@@ -6104,8 +5803,7 @@
                 el.addEventListener('click', function () {
                     const id = el.getAttribute('data-theme-id');
                     grid.querySelectorAll('.theme-option').forEach(function (c) {
-                        c.classList.remove(
-                            'active-theme');
+                        c.classList.remove('active-theme');
                     });
                     el.classList.add('active-theme');
                     selectedThemePreset = id;
@@ -6120,8 +5818,8 @@
             DOM.themePresetsModal.classList.add('active');
             State.isThemePresetsOpen = true;
             State.panelOpen = true;
+            State.openCount++;
             document.body.classList.add('modal-active');
-            State.pushState({ modal: 'themePresets' });
         }
 
         function closeThemePresets() {
@@ -6129,17 +5827,9 @@
             State.isThemePresetsOpen = false;
             State.panelOpen = false;
             document.body.classList.remove('modal-active');
-            if (!State.isSidebarOpen && !State.isNoticeOpen && !State.isEditModalOpen &&
-                !State.isNameModalOpen && !State.isWelcomeOpen && !State.isSearchOpen &&
-                !State.isChatOpen && !State.lightboxOpen) {
-                document.body.style.overflow = '';
-            }
+            if (State.openCount > 0) State.openCount--;
         }
 
-        DOM.ddThemePresets.addEventListener('click', function () {
-            closeProfileDropdown();
-            openThemePresets();
-        });
         DOM.themePresetsCloseBtn.addEventListener('click', closeThemePresets);
         DOM.themePresetsModal.addEventListener('click', function (e) {
             if (e.target === DOM.themePresetsModal) closeThemePresets();
@@ -6162,7 +5852,7 @@
         if (savedPreset !== 'default') { Helpers.setThemePreset(savedPreset); }
 
         // ============================================================
-        // AI CHAT – Center Modal
+        // AI CHAT
         // ============================================================
         function openChat() {
             if (State.panelOpen && !State.isChatOpen) return;
@@ -6170,13 +5860,12 @@
             DOM.chatModal.classList.add('active');
             State.isChatOpen = true;
             State.panelOpen = true;
+            State.openCount++;
             document.body.classList.add('modal-active');
-            State.pushState({ modal: 'chat' });
             setTimeout(function () {
                 DOM.chatInput.focus();
                 DOM.chatMessages.scrollTop = DOM.chatMessages.scrollHeight;
             }, 400);
-            setTimeout(function () { DOM.chatMessages.scrollTop = DOM.chatMessages.scrollHeight; }, 200);
         }
 
         function closeChat() {
@@ -6184,12 +5873,8 @@
             State.isChatOpen = false;
             State.panelOpen = false;
             document.body.classList.remove('modal-active');
-            if (!State.isSidebarOpen && !State.isNoticeOpen && !State.isEditModalOpen &&
-                !State.isNameModalOpen && !State.isWelcomeOpen && !State.isSearchOpen &&
-                !State.isThemePresetsOpen && !State.lightboxOpen) {
-                document.body.style.overflow = '';
-            }
             DOM.chatInput.blur();
+            if (State.openCount > 0) State.openCount--;
         }
 
         DOM.fabChat.addEventListener('click', function () {
@@ -6293,17 +5978,18 @@
                             stream.getTracks().forEach(function (track) { track.stop(); });
                             micPermissionGranted = true;
                             localStorage.setItem('psbs_mic_permission', 'true');
-                            DOM.voiceBtn.classList.remove('mic-denied');
+                            if (DOM.voiceBtn) DOM.voiceBtn.classList.remove('mic-denied');
                             resolve(true);
                         })
                         .catch(function (err) {
                             if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
                                 Toast.warning(
-                                    '🎤 Microphone permission denied. Please allow access in browser settings.');
+                                    '🎤 Microphone permission denied. Please allow access in browser settings.'
+                                );
                             } else {
                                 Toast.warning('🎤 Could not access microphone. Please try again.');
                             }
-                            DOM.voiceBtn.classList.add('mic-denied');
+                            if (DOM.voiceBtn) DOM.voiceBtn.classList.add('mic-denied');
                             resolve(false);
                         });
                 });
@@ -6317,50 +6003,52 @@
                     if (!State.isSearchOpen) { openSearch(); }
                 }
                 Toast.info('🎤 You said: "' + transcript + '"');
-                DOM.voiceBtn.classList.remove('listening');
+                if (DOM.voiceBtn) DOM.voiceBtn.classList.remove('listening');
                 State.isListening = false;
             };
             State.recognition.onerror = function (event) {
-                DOM.voiceBtn.classList.remove('listening');
+                if (DOM.voiceBtn) DOM.voiceBtn.classList.remove('listening');
                 State.isListening = false;
                 if (event.error === 'not-allowed') {
                     Toast.warning(
                         '🎤 Microphone access denied. Please enable permissions in browser settings.');
                     micPermissionGranted = false;
                     localStorage.removeItem('psbs_mic_permission');
-                    DOM.voiceBtn.classList.add('mic-denied');
+                    if (DOM.voiceBtn) DOM.voiceBtn.classList.add('mic-denied');
                 } else {
                     Toast.warning('🎤 Voice recognition error. Please try again.');
                 }
             };
             State.recognition.onend = function () {
-                DOM.voiceBtn.classList.remove('listening');
+                if (DOM.voiceBtn) DOM.voiceBtn.classList.remove('listening');
                 State.isListening = false;
             };
 
-            DOM.voiceBtn.addEventListener('click', async function () {
-                if (State.isListening) {
-                    State.recognition.stop();
-                    DOM.voiceBtn.classList.remove('listening');
-                    State.isListening = false;
-                    return;
-                }
-                if (!micPermissionGranted) {
-                    const granted = await requestMicrophonePermission();
-                    if (!granted) {
-                        Toast.warning('🎤 Please grant microphone access to use voice search.');
+            if (DOM.voiceBtn) {
+                DOM.voiceBtn.addEventListener('click', async function () {
+                    if (State.isListening) {
+                        State.recognition.stop();
+                        DOM.voiceBtn.classList.remove('listening');
+                        State.isListening = false;
                         return;
                     }
-                }
-                try {
-                    State.recognition.start();
-                    DOM.voiceBtn.classList.add('listening');
-                    State.isListening = true;
-                    Toast.info('🎤 Listening... Speak your search query.');
-                } catch (e) {
-                    Toast.error('Voice recognition error. Please try again.');
-                }
-            });
+                    if (!micPermissionGranted) {
+                        const granted = await requestMicrophonePermission();
+                        if (!granted) {
+                            Toast.warning('🎤 Please grant microphone access to use voice search.');
+                            return;
+                        }
+                    }
+                    try {
+                        State.recognition.start();
+                        DOM.voiceBtn.classList.add('listening');
+                        State.isListening = true;
+                        Toast.info('🎤 Listening... Speak your search query.');
+                    } catch (e) {
+                        Toast.error('Voice recognition error. Please try again.');
+                    }
+                });
+            }
         }
 
         // ============================================================
@@ -6429,22 +6117,16 @@
         }
 
         DOM.contactName.addEventListener('blur', function () { validateContactField(DOM.contactName, Validators.name); });
-        DOM.contactEmail.addEventListener('blur', function () {
-            validateContactField(DOM.contactEmail, Validators
-                .email);
-        });
+        DOM.contactEmail.addEventListener('blur', function () { validateContactField(DOM.contactEmail, Validators.email); });
         DOM.contactMessage.addEventListener('blur', function () {
-            validateContactField(DOM.contactMessage, Validators
-                .message);
+            validateContactField(DOM.contactMessage, Validators.message);
         });
         DOM.contactName.addEventListener('input', function () { validateContactField(DOM.contactName, Validators.name); });
         DOM.contactEmail.addEventListener('input', function () {
-            validateContactField(DOM.contactEmail, Validators
-                .email);
+            validateContactField(DOM.contactEmail, Validators.email);
         });
         DOM.contactMessage.addEventListener('input', function () {
-            validateContactField(DOM.contactMessage, Validators
-                .message);
+            validateContactField(DOM.contactMessage, Validators.message);
         });
 
         DOM.contactForm.addEventListener('submit', async function (e) {
@@ -6466,54 +6148,55 @@
                 DOM.contactForm.reset();
                 DOM.contactForm.querySelectorAll('.input-error').forEach(function (el) { el.textContent = ''; });
                 DOM.contactForm.querySelectorAll('[aria-invalid]').forEach(function (el) {
-                    el.removeAttribute(
-                        'aria-invalid');
+                    el.removeAttribute('aria-invalid');
                 });
                 Toast.success('Message sent successfully! 📨');
                 Helpers.confetti(30);
                 setTimeout(function () { DOM.contactSuccess.style.display = 'none'; }, 5000);
-            } catch (error) { Toast.error('Failed to send message. Please try again.'); } finally {
+            } catch (error) {
+                Toast.error('Failed to send message. Please try again.');
+            } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         });
 
         // ============================================================
-        // GALLERY
+        // GALLERY — Pagination with Next/Prev
         // ============================================================
-        const GALLERY_IMAGES = [
-            'img (1).jpg', 'img (2).jpg', 'img (3).jpg', 'img (4).jpg',
-            'img (5).jpg', 'img (6).jpg', 'img (7).jpg', 'img (8).jpg',
-            'img (9).jpg', 'img (10).jpg', 'img (11).jpg', 'img (12).jpg',
-            'img (13).jpg', 'img (14).jpg', 'img (15).jpg', 'img (16).jpg',
-            'img (17).jpg', 'img (18).jpg', 'img (19).jpg', 'img (20).jpg', 'img (21).jpg', 'img (22).jpg', 'img (23).jpg', 'img (24).jpg'
-        ];
+        const GALLERY_IMAGES = [];
+        for (let i = 1; i <= 24; i++) {
+            GALLERY_IMAGES.push(`img (${i}).jpg`);
+        }
+        // 3 rows × 4 columns = 12 images per page
+        const BATCH_SIZE = 4;
+        const totalPages = Math.ceil(GALLERY_IMAGES.length / BATCH_SIZE);
 
-        let galleryLoadedCount = 0;
-        const BATCH_SIZE = CONFIG.GALLERY_BATCH_SIZE || 8;
-
-        function renderGalleryBatch(start, count) {
+        function renderGalleryPage(page) {
             const grid = DOM.galleryGrid;
-            const end = Math.min(start + count, GALLERY_IMAGES.length);
-            let html = grid.innerHTML;
+            const start = page * BATCH_SIZE;
+            const end = Math.min(start + BATCH_SIZE, GALLERY_IMAGES.length);
+            let html = '';
             for (let i = start; i < end; i++) {
                 const img = GALLERY_IMAGES[i];
-                html += '<div class="gallery-item" data-src="./' + img + '">';
-                html += '<img src="./' + img + '" alt="PSBS campus scene ' + (i + 1) +
-                    '" loading="lazy" decoding="async" width="300" height="400" onerror="this.style.display=\'none\'">';
+                const idx = i + 1;
+                html += '<div class="gallery-item" data-src="' + img + '">';
+                html += '<img src="' + img + '" alt="PSBS campus scene ' + idx +
+                    '" loading="lazy" decoding="async" width="300" height="400" onerror="this.onerror=null;this.parentElement.querySelector(\'.gallery-loader\').style.display=\'none\';">';
                 html += '<div class="gallery-loader" aria-hidden="true"></div>';
                 html += '</div>';
             }
             grid.innerHTML = html;
+            // Add loaded class after images load
             const imgs = grid.querySelectorAll('.gallery-item img');
-            for (let i = 0; i < imgs.length; i++) {
-                const img = imgs[i];
+            imgs.forEach(function (img) {
                 if (img.complete) img.classList.add('loaded');
                 else {
                     img.addEventListener('load', function () { img.classList.add('loaded'); });
                     img.addEventListener('error', function () { img.classList.add('loaded'); });
                 }
-            }
+            });
+            // Lightbox click
             grid.querySelectorAll('.gallery-item').forEach(function (item) {
                 item.addEventListener('click', function () {
                     const src = item.getAttribute('data-src') || item.querySelector('img')?.src;
@@ -6529,19 +6212,33 @@
                     }
                 });
             });
-            galleryLoadedCount = end;
-            if (galleryLoadedCount >= GALLERY_IMAGES.length) {
-                DOM.galleryLoadMore.style.display = 'none';
-            } else {
-                DOM.galleryLoadMore.style.display = 'inline-block';
-            }
+            // Update buttons and indicator
+            DOM.galleryPrev.disabled = (page === 0);
+            DOM.galleryNext.disabled = (page === totalPages - 1);
+            DOM.galleryPageIndicator.textContent = 'Page ' + (page + 1) + ' / ' + totalPages;
         }
 
-        function initGallery() { renderGalleryBatch(0, BATCH_SIZE); }
-        DOM.galleryLoadMore.addEventListener('click', function () { renderGalleryBatch(galleryLoadedCount, BATCH_SIZE); });
+        function initGallery() {
+            State.galleryCurrentPage = 0;
+            renderGalleryPage(0);
+        }
+
+        DOM.galleryPrev.addEventListener('click', function () {
+            if (State.galleryCurrentPage > 0) {
+                State.galleryCurrentPage--;
+                renderGalleryPage(State.galleryCurrentPage);
+            }
+        });
+
+        DOM.galleryNext.addEventListener('click', function () {
+            if (State.galleryCurrentPage < totalPages - 1) {
+                State.galleryCurrentPage++;
+                renderGalleryPage(State.galleryCurrentPage);
+            }
+        });
 
         // ============================================================
-        // LIGHTBOX – Crossfade with Smooth Transitions
+        // LIGHTBOX
         // ============================================================
         function openLightbox(images, index) {
             if (!images || images.length === 0) return;
@@ -6552,11 +6249,8 @@
             State.lightboxPanX = 0;
             State.lightboxPanY = 0;
             State.lightboxOpen = true;
-            State.lightboxSwipeOffset = 0;
-            State.lightboxSwipeDirection = null;
-            State.lightboxIsTransitioning = false;
+            State.openCount++;
 
-            // Set current image
             const current = DOM.lightboxImgCurrent;
             const next = DOM.lightboxImgNext;
             current.src = images[State.lightboxIndex];
@@ -6569,9 +6263,6 @@
             DOM.lightboxOverlay.classList.add('active');
             document.body.classList.add('lightbox-open');
             document.body.style.overflow = 'hidden';
-            State.pushState({ modal: 'lightbox' });
-
-            // Preload next/prev
             preloadAdjacent();
         }
 
@@ -6584,16 +6275,11 @@
             State.lightboxIsZoomed = false;
             State.lightboxPanX = 0;
             State.lightboxPanY = 0;
-            State.lightboxSwipeOffset = 0;
-            State.lightboxIsTransitioning = false;
             DOM.lightboxImgCurrent.className = 'lightbox-img active';
             DOM.lightboxImgNext.className = 'lightbox-img';
             DOM.lightboxImgCurrent.style.transform = 'translate(-50%, -50%) scale(1)';
             DOM.lightboxImgNext.style.transform = 'translate(-50%, -50%) scale(1)';
-            if (State.historyStack.length > 0) {
-                const last = State.historyStack[State.historyStack.length - 1];
-                if (last && last.modal === 'lightbox') { State.historyStack.pop(); }
-            }
+            if (State.openCount > 0) State.openCount--;
         }
 
         function preloadAdjacent() {
@@ -6622,46 +6308,32 @@
             const current = DOM.lightboxImgCurrent;
             const next = DOM.lightboxImgNext;
 
-            // Set next image src
             next.src = State.lightboxImages[newIndex];
             next.className = 'lightbox-img';
             next.style.transform = 'translate(-50%, -50%) scale(1)';
-            // Ensure next is hidden initially
             next.style.opacity = '0';
 
-            // Wait for next image to load (or timeout)
             const loadCheck = function () {
-                // Fade out current
                 current.style.transition = 'opacity 0.3s ease';
                 current.style.opacity = '0';
 
-                // After current fades out, swap and fade in next
                 setTimeout(function () {
-                    // Swap classes
                     current.className = 'lightbox-img';
                     current.src = next.src;
                     current.style.opacity = '0';
-                    // Show next as active
                     next.className = 'lightbox-img active';
                     next.style.opacity = '1';
-                    // Update index
                     State.lightboxIndex = newIndex;
-                    // Reset zoom/pan
                     State.lightboxZoom = 1;
                     State.lightboxIsZoomed = false;
                     State.lightboxPanX = 0;
                     State.lightboxPanY = 0;
                     current.style.transform = 'translate(-50%, -50%) scale(1)';
                     next.style.transform = 'translate(-50%, -50%) scale(1)';
-                    // Fade in current (which now has the new image)
                     current.style.transition = 'opacity 0.3s ease';
                     current.style.opacity = '1';
-                    // Hide next
                     next.className = 'lightbox-img';
                     next.style.opacity = '0';
-                    // Swap roles: current now holds the image, next is empty
-                    // But we keep the image in current, next will be used for next transition
-                    // So we set next src to empty and reset
                     next.src = '';
                     updateLightboxCounter();
                     preloadAdjacent();
@@ -6669,21 +6341,12 @@
                 }, 300);
             };
 
-            // If image is already loaded, proceed
-            if (next.complete && next.naturalHeight !== 0) {
-                loadCheck();
-            } else {
+            if (next.complete && next.naturalHeight !== 0) { loadCheck(); } else {
                 next.onload = function () {
                     next.onload = null;
                     loadCheck();
                 };
-                // Fallback in case onload doesn't fire
-                setTimeout(function () {
-                    if (State.lightboxIsTransitioning) {
-                        // Force proceed
-                        loadCheck();
-                    }
-                }, 800);
+                setTimeout(function () { if (State.lightboxIsTransitioning) { loadCheck(); } }, 800);
             }
         }
 
@@ -6693,7 +6356,6 @@
             }
         }
 
-        // Lightbox event listeners
         DOM.lightboxClose.addEventListener('click', closeLightbox);
         DOM.lightboxOverlay.addEventListener('click', function (e) {
             if (e.target === DOM.lightboxOverlay) closeLightbox();
@@ -6706,137 +6368,19 @@
             if (e.key === 'Escape') { closeLightbox(); return; }
             if (e.key === 'ArrowLeft') {
                 navigateLightbox(-1);
-                e.preventDefault(); return;
+                e.preventDefault();
+                return;
             }
             if (e.key === 'ArrowRight') {
                 navigateLightbox(1);
-                e.preventDefault(); return;
+                e.preventDefault();
+                return;
             }
         });
-
-        // Touch gestures for lightbox (simplified swipe)
-        let lightboxTouch = {
-            startX: 0,
-            startY: 0,
-            currentX: 0,
-            currentY: 0,
-            startTime: 0,
-            isDragging: false,
-            isSwiping: false,
-        };
-
-        DOM.lightboxImgWrap.addEventListener('touchstart', function (e) {
-            if (e.touches.length === 1) {
-                const touch = e.touches[0];
-                lightboxTouch.startX = touch.clientX;
-                lightboxTouch.startY = touch.clientY;
-                lightboxTouch.currentX = touch.clientX;
-                lightboxTouch.currentY = touch.clientY;
-                lightboxTouch.startTime = Date.now();
-                lightboxTouch.isDragging = true;
-                lightboxTouch.isSwiping = false;
-            }
-        }, { passive: true });
-
-        DOM.lightboxImgWrap.addEventListener('touchmove', function (e) {
-            if (e.touches.length === 1 && lightboxTouch.isDragging) {
-                const touch = e.touches[0];
-                const dx = touch.clientX - lightboxTouch.startX;
-                const dy = touch.clientY - lightboxTouch.startY;
-                lightboxTouch.currentX = touch.clientX;
-                lightboxTouch.currentY = touch.clientY;
-
-                if (Math.abs(dx) > 20 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-                    lightboxTouch.isSwiping = true;
-                    e.preventDefault();
-                }
-            }
-        }, { passive: false });
-
-        DOM.lightboxImgWrap.addEventListener('touchend', function (e) {
-            if (lightboxTouch.isDragging && lightboxTouch.isSwiping) {
-                const dx = lightboxTouch.currentX - lightboxTouch.startX;
-                if (Math.abs(dx) > 50) {
-                    const direction = dx > 0 ? -1 : 1;
-                    navigateLightbox(direction);
-                }
-            }
-            lightboxTouch.isDragging = false;
-            lightboxTouch.isSwiping = false;
-        }, { passive: true });
 
         // ============================================================
         // RENDER FUNCTIONS
         // ============================================================
-        function renderResults() {
-            const data = [
-                { exam: 'SEE 2081', grade: 'A+', status: 'pass', date: '2081-03-15' },
-                { exam: 'Term I 2081', grade: 'A', status: 'pass', date: '2081-06-20' },
-                { exam: 'Term II 2081', grade: 'B+', status: 'pending', date: '2081-09-10' },
-                { exam: 'Pre-SEE 2081', grade: 'A-', status: 'pass', date: '2081-11-05' },
-                { exam: 'Term III 2081', grade: 'A', status: 'pass', date: '2081-12-20' },
-            ];
-            let html = '';
-            for (let i = 0; i < data.length; i++) {
-                const d = data[i];
-                const statusLabel = d.status === 'pass' ? '✅ Pass' : d.status === 'fail' ? '❌ Fail' : '⏳ Pending';
-                html += '<div class="result-card">';
-                html += '<div class="result-info"><h4>' + Helpers.sanitize(d.exam) + '</h4><p>📊 Grade: ' + d.grade +
-                    ' • 📅 ' + d.date + '</p></div>';
-                html += '<span class="result-status ' + d.status + '">' + statusLabel + '</span>';
-                html += '</div>';
-            }
-            DOM.resultsContainer.innerHTML = html;
-        }
-
-        function renderNews() {
-            const data = [
-                {
-                    tag: 'Announcement', title: 'New Academic Year 2082 Starts',
-                    excerpt: 'We are excited to welcome students for the new academic year. Admissions are now open.',
-                    date: '2081-12-01'
-                },
-                {
-                    tag: 'Achievement', title: 'PSBS Wins District Science Fair',
-                    excerpt: 'Our students secured 1st position in the District Science Fair 2081 with their innovative project.',
-                    date: '2081-11-20'
-                },
-                {
-                    tag: 'Event', title: 'Annual Sports Day 2081',
-                    excerpt: 'Mark your calendars for the Annual Sports Day on 2081-12-15. All students are encouraged to participate.',
-                    date: '2081-11-10'
-                },
-                {
-                    tag: 'Alumni', title: 'Alumni Meet 2081',
-                    excerpt: 'Join us for the annual alumni meet on 2081-12-25. Reconnect with old friends.',
-                    date: '2081-10-28'
-                },
-                {
-                    tag: 'Workshop', title: 'Career Counseling Session',
-                    excerpt: 'Special career counseling session for Grade 10 students with industry experts.',
-                    date: '2081-11-05'
-                },
-                {
-                    tag: 'Announcement', title: 'New Computer Lab Inaugurated',
-                    excerpt: 'State-of-the-art computer lab with 30 workstations now open for students.',
-                    date: '2081-10-15'
-                }
-            ];
-            let html = '';
-            for (let i = 0; i < data.length; i++) {
-                const d = data[i];
-                html += '<div class="news-card">';
-                html += '<div class="news-meta"><span class="news-tag">' + d.tag + '</span><span>📅 ' + d.date +
-                    '</span><span>⏱️ ' + Helpers.readingTime(d.excerpt) + ' min read</span></div>';
-                html += '<h3>' + Helpers.sanitize(d.title) + '</h3>';
-                html += '<p>' + Helpers.sanitize(d.excerpt) + '</p>';
-                html +=
-                    '<a href="#" class="news-readmore">Read More <i class="ri-arrow-right-line" aria-hidden="true"></i></a>';
-                html += '</div>';
-            }
-            DOM.newsContainer.innerHTML = html;
-        }
-
         function renderFaculty() {
             const data = [
                 { name: 'Binod Mishra', subject: 'Principal / Science', emoji: '👨‍🏫' },
@@ -6863,31 +6407,6 @@
             DOM.facultyContainer.innerHTML = html;
         }
 
-        function renderCalendar() {
-            const events = [
-                { date: '2081-12-15', title: 'Annual Sports Day', desc: 'Full day sports events for all grades' },
-                { date: '2081-12-25', title: 'Alumni Meet', desc: 'Annual alumni gathering and networking' },
-                { date: '2082-01-01', title: 'New Year Holiday', desc: 'School closed for New Year celebration' },
-                { date: '2082-01-15', title: 'SEE Pre-Test', desc: 'Pre-SEE examination for Grade 10' },
-                { date: '2082-02-01', title: 'Parent-Teacher Meeting', desc: 'Quarterly progress review meeting' },
-                { date: '2082-02-15', title: 'Science Exhibition', desc: 'Annual science and technology exhibition' },
-            ];
-            let html = '';
-            for (let i = 0; i < events.length; i++) {
-                const e = events[i];
-                const d = new Date(e.date);
-                const day = d.getDate();
-                const month = d.toLocaleString('en-US', { month: 'short' });
-                html += '<div class="calendar-event">';
-                html += '<div class="event-date"><span class="day">' + day + '</span><span class="month">' + month +
-                    '</span></div>';
-                html += '<div class="event-info"><h4>' + Helpers.sanitize(e.title) + '</h4><p>' + Helpers.sanitize(e
-                    .desc) + '</p></div>';
-                html += '</div>';
-            }
-            DOM.calendarContainer.innerHTML = html;
-        }
-
         function renderAlumni() {
             const data = [
                 { name: 'Rajesh Thapa', year: '2018', achievement: 'Software Engineer at Google', emoji: '👨‍💻' },
@@ -6908,27 +6427,6 @@
                 html += '</div>';
             }
             DOM.alumniContainer.innerHTML = html;
-        }
-
-        function renderHomework() {
-            const data = [
-                { title: 'Math: Algebra Problems', subject: 'Mathematics', due: '2081-12-20', status: 'pending' },
-                { title: 'Essay on Climate Change', subject: 'English', due: '2081-12-22', status: 'submitted' },
-                { title: 'Science Lab Report', subject: 'Science', due: '2081-12-18', status: 'due' },
-                { title: 'Nepali Poem Analysis', subject: 'Nepali', due: '2081-12-25', status: 'pending' },
-                { title: 'Social Studies Project', subject: 'Social Studies', due: '2081-12-28', status: 'submitted' },
-            ];
-            let html = '';
-            const statusLabels = { due: '🔴 Due', submitted: '✅ Submitted', pending: '⏳ Pending' };
-            for (let i = 0; i < data.length; i++) {
-                const d = data[i];
-                html += '<div class="hw-card">';
-                html += '<div class="hw-info"><h4>' + Helpers.sanitize(d.title) + '</h4><p>📚 ' + d.subject +
-                    ' • Due: ' + Helpers.formatDate(d.due) + ' • ' + Helpers.timeAgo(d.due) + '</p></div>';
-                html += '<span class="hw-status ' + d.status + '">' + statusLabels[d.status] + '</span>';
-                html += '</div>';
-            }
-            DOM.homeworkContainer.innerHTML = html;
         }
 
         function renderTestimonials() {
@@ -6970,11 +6468,11 @@
         }
 
         // ============================================================
-        // HEADER SCROLL
+        // HEADER SCROLL — with throttling for smoothness
         // ============================================================
         let lastScrollTop = 0;
         let scrollTimeoutId = null;
-        const handleScroll = Helpers.debounce(function () {
+        const handleScroll = Helpers.throttle(function () {
             const current = window.pageYOffset || document.documentElement.scrollTop;
             State.isScrolling = true;
             clearTimeout(scrollTimeoutId);
@@ -6985,7 +6483,7 @@
                 else if (current < lastScrollTop - 10) DOM.header.classList.remove('header-hidden');
             } else DOM.header.classList.remove('header-hidden');
             lastScrollTop = current;
-        }, 50);
+        }, 80);
         window.addEventListener('scroll', handleScroll, { passive: true });
 
         // ============================================================
@@ -7000,9 +6498,7 @@
             if (exclude.indexOf('search') === -1) closeSearch();
             if (exclude.indexOf('themePresets') === -1) closeThemePresets();
             if (exclude.indexOf('chat') === -1) closeChat();
-            if (exclude.indexOf('lightbox') === -1) {
-                if (State.lightboxOpen) closeLightbox();
-            }
+            if (exclude.indexOf('lightbox') === -1) { if (State.lightboxOpen) closeLightbox(); }
             if (!DOM.sidebar.classList.contains('active') && !DOM.noticePanel.classList.contains('active')) {
                 DOM.sidebarOverlay.classList.remove('active');
             }
@@ -7017,30 +6513,26 @@
         }
 
         // ============================================================
-        // HISTORY – Back Button
+        // BACK BUTTON
         // ============================================================
         window.addEventListener('popstate', function (e) {
-            const state = State.popState() || {};
-            if (state.modal === 'edit') closeEditNameModal();
-            else if (state.modal === 'welcome') closeWelcomeCard();
-            else if (state.modal === 'name') closeNameModal();
-            else if (state.modal === 'search') closeSearch();
-            else if (state.modal === 'themePresets') closeThemePresets();
-            else if (state.modal === 'chat') closeChat();
-            else if (state.modal === 'lightbox') { if (State.lightboxOpen) closeLightbox(); } else if (state
-                .panel === 'dropdown') closeProfileDropdown();
-            else if (state.panel === 'notice') closeNoticePanel();
-            else if (state.panel === 'sidebar') closeSidebar();
-            else { closeAllPanels(); }
-            if (!State.lightboxOpen && !State.isSidebarOpen && !State.isNoticeOpen &&
-                !State.isDropdownOpen && !State.isEditModalOpen && !State.isNameModalOpen &&
-                !State.isWelcomeOpen && !State.isSearchOpen && !State.isThemePresetsOpen &&
-                !State.isChatOpen) {
-                document.body.style.overflow = '';
-                document.body.classList.remove('modal-active', 'sidebar-active', 'notice-active',
-                    'dropdown-active', 'welcome-active', 'lightbox-open');
+            if (State.openCount <= 0) {
+                history.pushState({}, '');
+                return;
             }
+            if (State.lightboxOpen) { closeLightbox(); return; }
+            if (State.isChatOpen) { closeChat(); return; }
+            if (State.isThemePresetsOpen) { closeThemePresets(); return; }
+            if (State.isSearchOpen) { closeSearch(); return; }
+            if (State.isWelcomeOpen) { closeWelcomeCard(); return; }
+            if (State.isEditModalOpen) { closeEditNameModal(); return; }
+            if (State.isNameModalOpen) { closeNameModal(); return; }
+            if (State.isNoticeOpen) { closeNoticePanel(); return; }
+            if (State.isSidebarOpen) { closeSidebar(); return; }
+            if (State.isDropdownOpen) { closeProfileDropdown(); return; }
+            closeAllPanels();
         });
+        history.pushState({}, '');
 
         // ============================================================
         // SWIPE GESTURES
@@ -7184,39 +6676,6 @@
         Gestures.init();
 
         // ============================================================
-        // BUTTON GLOW
-        // ============================================================
-        const glowBtns = document.querySelectorAll('.primary-btn, .secondary-btn');
-        for (let i = 0; i < glowBtns.length; i++) {
-            const btn = glowBtns[i];
-            btn.addEventListener('mousemove', function (e) {
-                const rect = btn.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                btn.style.setProperty('--x', x + '%');
-                btn.style.setProperty('--y', y + '%');
-            });
-        }
-
-        // ============================================================
-        // SHARE PAGE
-        // ============================================================
-        DOM.ddShare.addEventListener('click', function () {
-            Helpers.sharePage();
-            closeProfileDropdown();
-        });
-
-        DOM.ddFeedback.addEventListener('click', function () {
-            Toast.info('📝 Share your feedback: info@psbs.edu.np');
-            closeProfileDropdown();
-        });
-
-        DOM.downloadsLink.addEventListener('click', function (e) {
-            e.preventDefault();
-            Toast.achievement('📄 Download forms available at the admin office');
-        });
-
-        // ============================================================
         // KEYBOARD SHORTCUTS
         // ============================================================
         document.addEventListener('keydown', function (e) {
@@ -7337,7 +6796,7 @@
         }
 
         // ============================================================
-        // HERO STATS
+        // HERO STATS — with year counter fix
         // ============================================================
         function animateHeroStats() {
             if (DOM.heroStudents) {
@@ -7368,7 +6827,17 @@
             }
             if (DOM.heroYears) {
                 const age = Helpers.schoolAge();
-                DOM.heroYears.textContent = age + '+';
+                const target = age;
+                let current = 0;
+                const step = Math.ceil(target / 40);
+                const interval = setInterval(function () {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(interval);
+                    }
+                    DOM.heroYears.textContent = current + '+';
+                }, 30);
             }
         }
         setTimeout(animateHeroStats, 500);
@@ -7428,12 +6897,8 @@
         function init() {
             Helpers.applyTheme();
             Profile.updateUI();
-            renderResults();
-            renderNews();
             renderFaculty();
-            renderCalendar();
             renderAlumni();
-            renderHomework();
             renderTestimonials();
             initGallery();
             initVoiceSearch();
@@ -7444,11 +6909,17 @@
             } else {
                 setTimeout(function () { Toast.info('👋 Welcome back, ' + profile.name + '!'); }, 1000);
             }
-            Helpers.log('🌸 Radhe Radhe! PSBS Portal — Multiverse UI loaded.');
+            Helpers.log('🌸 Radhe Radhe! PSBS Portal — COMPLETE FIXED VERSION with Gallery pagination loaded.');
         }
 
-        init();
+        // Run init when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
     </script>
+
 </body>
 
 </html>
